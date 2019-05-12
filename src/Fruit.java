@@ -1,46 +1,73 @@
 import javafx.scene.image.Image;
 
+import java.util.Random;
+
 public class Fruit implements GameObject {
+    private int Xlocation;
+    private int Ylocation;
+    private int maxHeight;
+    private int initialVelocity;
+    private int fallingVelocity;
+    private Boolean isSliced;
+    private Boolean hasMovedOffScreen;
+    private Image[] images;
+    private int randomInitialPosition;
+
+    public Fruit(Image[] images){
+        Random random=new Random();
+        randomInitialPosition =random.nextInt(4);
+        Xlocation=0;
+        Ylocation=0;
+        maxHeight=0;
+        initialVelocity=0;
+        fallingVelocity=0;
+        isSliced=false;
+        hasMovedOffScreen=false;
+        this.images=images;
+    }
 
 
+    public enum getObjectType{
+
+    };
     @Override
     public int getXlocation() {
-        return 0;
+        return Xlocation;
     }
 
     @Override
     public int getYlocation() {
-        return 0;
+        return Ylocation;
     }
 
     @Override
     public int getMaxHeight() {
-        return 0;
+        return maxHeight;
     }
 
     @Override
     public int getInitialVelocity() {
-        return 0;
+        return initialVelocity;
     }
 
     @Override
     public int getFallingVelocity() {
-        return 0;
+        return fallingVelocity;
     }
 
     @Override
     public Boolean isSliced() {
-        return null;
+        return isSliced;
     }
 
     @Override
     public Boolean hasMovedOffScreen() {
-        return null;
+        return hasMovedOffScreen;
     }
 
     @Override
     public void slice() {
-
+        isSliced=true;
     }
 
     @Override
@@ -50,6 +77,6 @@ public class Fruit implements GameObject {
 
     @Override
     public Image[] getImages() {
-        return new Image[0];
+        return images;
     }
 }
