@@ -7,6 +7,7 @@ public class Game {
         System.out.println("hii");
         System.out.println("Test");
         System.out.println("blo2");
+        System.out.println("mimoefo");
 
     }
 }
