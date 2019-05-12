@@ -29,13 +29,13 @@ public abstract class Bombs implements GameObject {
     }
 
     @Override
-    public Boolean isSliced() {
-        return null;
+    public boolean isSliced() {
+        return false;
     }
 
     @Override
-    public Boolean hasMovedOffScreen() {
-        return null;
+    public boolean hasMovedOffScreen() {
+        return false;
     }
 
     @Override
