@@ -6,6 +6,7 @@ public class Game {
         System.out.println("nazelo intellij lol");
         System.out.println("hii");
         System.out.println("Test");
+        System.out.println("blo2");
 
     }
 }
