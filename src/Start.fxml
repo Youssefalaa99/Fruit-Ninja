@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartContoller">
+   <children>
+      <ImageView fitHeight="540.0" fitWidth="500.0" layoutY="-40.0" pickOnBounds="true">
+         <image>
+            <Image url="@LoginGame.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="41.0" layoutY="165.0" prefHeight="320.0" prefWidth="100.0" spacing="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#startGame" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 999999;" text="Start " textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 9999999999;" text="Load ">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#exitGame" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 200;" text="Exit">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font></Button>
+         </children>
+      </VBox>
+      <ChoiceBox fx:id="chooseLevel" layoutX="255.0" layoutY="184.0" prefWidth="150.0" />
+      <Button layoutX="270.0" layoutY="452.0" mnemonicParsing="false" text="Show Saved Games" />
+      <ListView layoutX="237.0" layoutY="235.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

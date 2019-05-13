@@ -13,10 +13,9 @@ public class Game extends Application {
 	}
 
 	public void start(Stage primaryStage) throws Exception {
-		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource("Sample.fxml"));
+		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource("Start.fxml"));
 		primaryStage.setTitle("Fruit Ninja");
 		primaryStage.setScene(new Scene(LoginUserGUI, 500, 500));
-
 		primaryStage.show();
 	}
 
