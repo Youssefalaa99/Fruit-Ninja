@@ -13,7 +13,7 @@ public class Game extends Application {
 	}
 
 	public void start(Stage primaryStage) throws Exception {
-		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource("."));
+		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource(""));
 		primaryStage.setTitle("Fruit Ninja");
 		primaryStage.setScene(new Scene(LoginUserGUI, 500, 500));
 
