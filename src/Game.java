@@ -1,13 +1,23 @@
-public class Game {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+public class Game extends Application {
 
-    public static void main(String[] args){
-        System.out.println("Hello!!!!");
-        System.out.println("nazelo intellij lol");
-        System.out.println("hii");
-        System.out.println("Test");
-        System.out.println("blo2");
-        System.out.println("mimoefo");
+	public static void main(String[] args) {
 
-    }
+		launch(args);
+
+	}
+
+	public void start(Stage primaryStage) throws Exception {
+		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource(""));
+		primaryStage.setTitle("Fruit Ninja");
+		primaryStage.setScene(new Scene(LoginUserGUI, 500, 500));
+
+		primaryStage.show();
+	}
+
 }
