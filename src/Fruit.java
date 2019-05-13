@@ -56,12 +56,12 @@ public class Fruit implements GameObject {
     }
 
     @Override
-    public Boolean isSliced() {
+    public boolean isSliced() {
         return isSliced;
     }
 
     @Override
-    public Boolean hasMovedOffScreen() {
+    public boolean hasMovedOffScreen() {
         return hasMovedOffScreen;
     }
 
