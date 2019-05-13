@@ -28,11 +28,11 @@ public interface GameObject {
     /**
      *@return whether the object is sliced or not
      */
-    public Boolean isSliced();
+    public boolean isSliced();
     /**
      *@return whether the object is dropped off the screen or not
      */
-    public Boolean hasMovedOffScreen();
+    public boolean hasMovedOffScreen();
     /**
      *it is used to slice the object
      */
