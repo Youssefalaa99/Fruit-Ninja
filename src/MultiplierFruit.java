@@ -5,4 +5,5 @@ public class MultiplierFruit extends Fruit {
     public MultiplierFruit(Image[] images){
         super(images);
     }
+
 }
