@@ -11,12 +11,14 @@ import java.util.List;
 import java.util.Stack;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,36 +32,41 @@ public class NewGame implements Initializable {
 	@FXML
 	private Button start;
 	@FXML
-	private ImageView tomato;
+	private ImageView fruit1;
 	@FXML
-	private ImageView watermelon;
+	private ImageView fruit2;
 	@FXML
-	private ImageView grape;
+	private ImageView fruit3;
+	@FXML
+	private AnchorPane pane;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		
+		ImageCursor imgcursor = new ImageCursor(new Image("sword.png"));
+		ImageCursor imgcursor1 = new ImageCursor(new Image("CursorEffect.png"));
+		pane.setCursor(imgcursor);
+		AnimationGUI ani = new AnimationGUI();
+		ani.move1(fruit1);
+		ani.move2(fruit2);
+		ani.move3(fruit3);
+		
 
-		Timeline t = new Timeline();
-		t.getKeyFrames().addAll(new KeyFrame(Duration.seconds(3), new KeyValue(grape.yProperty(), 300),
-				new KeyValue(grape.rotateProperty(), 720)));
-		t.setCycleCount(1000);
-		t.play();
-
-		Timeline t1 = new Timeline();
-		t1.getKeyFrames().addAll(new KeyFrame(Duration.seconds(3), new KeyValue(tomato.yProperty(), 300),
-				new KeyValue(tomato.rotateProperty(), 720)));
-		t1.setCycleCount(1000);
-		t1.setDelay(Duration.seconds(1));
-		t1.play();
-
-		Timeline t2 = new Timeline();
-		t2.getKeyFrames().addAll(new KeyFrame(Duration.seconds(3), new KeyValue(watermelon.yProperty(), 300),
-				new KeyValue(watermelon.rotateProperty(), 720)));
-		t2.setCycleCount(1000);
-		t1.setDelay(Duration.seconds(2));
-		t2.play();
-
+		
+		fruit1.setOnMouseMoved(e -> {
+			fruit1.setCursor(imgcursor1);
+			fruit1.setY(0);
+		});
+		fruit2.setOnMouseMoved(e -> {
+			fruit2.setCursor(imgcursor1);
+			fruit2.setY(0);
+		});
+		fruit3.setOnMouseMoved(e -> {
+			fruit3.setCursor(imgcursor1);
+			fruit3.setY(0);
+		});
 	}
+	
+	
 
 }

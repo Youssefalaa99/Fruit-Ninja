@@ -16,7 +16,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
-public class StartContoller implements Initializable {
+public class StartController implements Initializable {
 
 	@FXML
 	ChoiceBox<String> chooseLevel;
@@ -31,7 +31,6 @@ public class StartContoller implements Initializable {
 
 	public void startGame(ActionEvent event) throws IOException {
 
-	
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("Mode.fxml"));
 		Parent GameGUI = loader.load();
