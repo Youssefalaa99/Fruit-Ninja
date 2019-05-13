@@ -20,6 +20,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.animation.*;
@@ -42,7 +43,7 @@ public class NewGame implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		ImageCursor imgcursor = new ImageCursor(new Image("sword.png"));
 		ImageCursor imgcursor1 = new ImageCursor(new Image("CursorEffect.png"));
 		pane.setCursor(imgcursor);
@@ -50,23 +51,29 @@ public class NewGame implements Initializable {
 		ani.move1(fruit1);
 		ani.move2(fruit2);
 		ani.move3(fruit3);
-		
 
-		
-		fruit1.setOnMouseMoved(e -> {
-			fruit1.setCursor(imgcursor1);
-			fruit1.setY(0);
-		});
-		fruit2.setOnMouseMoved(e -> {
-			fruit2.setCursor(imgcursor1);
-			fruit2.setY(0);
-		});
-		fruit3.setOnMouseMoved(e -> {
-			fruit3.setCursor(imgcursor1);
-			fruit3.setY(0);
-		});
+		pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
+            pane.startFullDrag();
+        });
+
+        fruit1.setOnMouseDragEntered(mouseEvent -> {
+            if (mouseEvent.isPrimaryButtonDown()) {
+                fruit1.setVisible(false);
+            	fruit1.setDisable(true);
+            }
+        });
+        fruit2.setOnMouseDragEntered(mouseEvent -> {
+            if (mouseEvent.isPrimaryButtonDown()) {
+            	fruit2.setVisible(false);
+            	fruit2.setDisable(true);	
+            }
+        });
+        fruit3.setOnMouseDragEntered(mouseEvent -> {
+            if (mouseEvent.isPrimaryButtonDown()) {
+            	fruit3.setVisible(false);
+            	fruit3.setDisable(true);
+            }
+        });
 	}
-	
-	
 
 }
