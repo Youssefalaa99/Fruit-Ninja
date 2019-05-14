@@ -58,7 +58,8 @@ public class NewGame implements Initializable {
 
         fruit1.setOnMouseDragEntered(mouseEvent -> {
             if (mouseEvent.isPrimaryButtonDown()) {
-                fruit1.setVisible(false);
+                fruit1.setCursor(imgcursor1);
+            	fruit1.setVisible(false);
             	fruit1.setDisable(true);
             }
         });
