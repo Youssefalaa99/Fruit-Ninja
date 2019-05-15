@@ -5,6 +5,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.event.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.MoveTo;
@@ -13,53 +14,55 @@ import javafx.util.Duration;
 
 public class AnimationGUI {
 
-	public void move1(ImageView fruit) {
-	
+	private PathTransition pathtrans;
+
+	public void move1(ImageView fruit, int delay, int cycle) {
+		int randomNum = ThreadLocalRandom.current().nextInt(500, 2000 + 1);
+
 		Timeline timeline = new Timeline();
-		
-		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit,0, 0) ));
-		
-		timeline.setCycleCount(1000);
+
+		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomPath(fruit, delay, cycle)));
+		timeline.setDelay(Duration.millis(randomNum));
+		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
-	
-	
+
 	}
 
-	public void move2(ImageView fruit) {
-		
-		Timeline timeline = new Timeline();
-		
-		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit,0, 0) ));
-		timeline.setCycleCount(1000);
-		timeline.setDelay(Duration.millis(200));
+//	public void move2(ImageView fruit) {
+//
+//		Timeline timeline = new Timeline();
+//
+//		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit, 4, 0)));
+//		timeline.setCycleCount(Timeline.INDEFINITE);
+//		timeline.setDelay(Duration.millis(3000));
+//		timeline.play();
+//
+//	}
+//
+//	public void move3(ImageView fruit) {
+//
+//		Timeline timeline = new Timeline();
+//
+//		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit, 9, 0)));
+//		timeline.setCycleCount(Timeline.INDEFINITE);
+//		timeline.play();
+//
+//	}
 
-		timeline.play();
-	
-	}
+	public EventHandler<ActionEvent> randomPath(ImageView fruit, int delay, int cycle) {
 
-	public void move3(ImageView fruit) {
-	
-		Timeline timeline = new Timeline();
-		
-		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit,0, 0) ));
-		timeline.setCycleCount(1000);
-		
-		timeline.play();
-	
-	}
+		EventHandler<ActionEvent> event = e -> {
+			fruit.setVisible(true);
+//			fruit.setImage(new Image("watermelon.png"));
+			Path path = new Path();
+			path.getElements().add(new MoveTo(0, 0));
+			path.getElements().add(new CubicCurveTo(0, -500, 350, -500, 500, 0));
+			pathtrans = new PathTransition(Duration.millis(cycle), path, fruit);
+			pathtrans.setDelay(Duration.millis(delay));
+			pathtrans.play();
 
-	public EventHandler<ActionEvent> randomKeyFrame(ImageView fruit, int max, int min) {
-		int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
-		EventHandler<ActionEvent> event = e ->{
-			
-			
-				Path path = new Path();
-				path.getElements().add(new MoveTo(0, 0));
-				path.getElements().add(new CubicCurveTo(0, -500,350 , -500, 500, 0));
-				PathTransition pathtrans = new PathTransition(Duration.millis(3000), path, fruit);
-				pathtrans.play();
 		};
-		
+
 		return event;
 
 	}

@@ -24,7 +24,7 @@ public abstract class Bombs implements GameObject {
     }
 
     @Override
-    public int getFallingVelocity() {
+    public int getVelocity() {
         return 0;
     }
 

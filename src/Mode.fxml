@@ -27,7 +27,7 @@
             <Image url="@sword.png" />
          </image>
       </ImageView>
-      <HBox layoutY="651.0" prefHeight="80.0" prefWidth="396.0" spacing="60.0">
+      <HBox alignment="CENTER" layoutY="719.0" prefHeight="80.0" prefWidth="800.0">
          <children>
             <ImageView fx:id="fruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -41,7 +41,47 @@
             </ImageView>
             <ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
+                  <Image url="@bomb.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit21" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@watermelon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit22" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
                   <Image url="@banana.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit23" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@bomb.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit24" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@banana.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit11" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@raspberry.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit12" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@bomb.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit13" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@raspberry.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fruit14" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@watermelon.png" />
                </image>
             </ImageView>
          </children>

@@ -48,9 +48,9 @@ public class NewGame implements Initializable {
 		ImageCursor imgcursor1 = new ImageCursor(new Image("CursorEffect.png"));
 		pane.setCursor(imgcursor);
 		AnimationGUI ani = new AnimationGUI();
-		ani.move1(fruit1);
-		ani.move2(fruit2);
-		ani.move3(fruit3);
+		ani.move1(fruit1,1000,3000);
+		ani.move1(fruit2,2000,2000);
+		ani.move1(fruit3,500,2500);
 
 		pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
             pane.startFullDrag();
@@ -60,19 +60,18 @@ public class NewGame implements Initializable {
             if (mouseEvent.isPrimaryButtonDown()) {
                 fruit1.setCursor(imgcursor1);
             	fruit1.setVisible(false);
-            	fruit1.setDisable(true);
+            	//fruit1.slice(true);
             }
         });
         fruit2.setOnMouseDragEntered(mouseEvent -> {
             if (mouseEvent.isPrimaryButtonDown()) {
             	fruit2.setVisible(false);
-            	fruit2.setDisable(true);	
+            	
             }
         });
         fruit3.setOnMouseDragEntered(mouseEvent -> {
             if (mouseEvent.isPrimaryButtonDown()) {
             	fruit3.setVisible(false);
-            	fruit3.setDisable(true);
             }
         });
 	}

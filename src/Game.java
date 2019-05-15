@@ -16,6 +16,7 @@ public class Game extends Application {
 		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource("Start.fxml"));
 		primaryStage.setTitle("Fruit Ninja");
 		primaryStage.setScene(new Scene(LoginUserGUI, 500, 500));
+//		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 

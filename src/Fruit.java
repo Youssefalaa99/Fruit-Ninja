@@ -30,28 +30,28 @@ public class Fruit implements GameObject {
     public enum getObjectType{
 
     };
-    @Override
+    
     public int getXlocation() {
         return Xlocation;
     }
 
-    @Override
+    
     public int getYlocation() {
         return Ylocation;
     }
 
-    @Override
+    
     public int getMaxHeight() {
         return maxHeight;
     }
 
-    @Override
+    
     public int getInitialVelocity() {
         return initialVelocity;
     }
 
     @Override
-    public int getFallingVelocity() {
+    public int getVelocity() {
         return fallingVelocity;
     }
 
@@ -60,7 +60,7 @@ public class Fruit implements GameObject {
         return isSliced;
     }
 
-    @Override
+    
     public boolean hasMovedOffScreen() {
         return hasMovedOffScreen;
     }
@@ -70,13 +70,13 @@ public class Fruit implements GameObject {
         isSliced=true;
     }
 
-    @Override
+    
     public void move(double time) {
 
     }
 
-    @Override
-    public Image[] getImages() {
-        return images;
+    
+    public Image getImages() {
+        return null;
     }
 }
