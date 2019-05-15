@@ -24,9 +24,9 @@ public class ObjectFactory {
             case 0:
                 return new Fruit(images.getBanana());
             case 1:
-                return new Fruit(images.getApple());
+                return new Fruit(images.getRaspberry());
             case 2:
-                return new Fruit(images.getMango());
+                return new Fruit(images.getPeach());
             case 3:
                 return new Fruit(images.getWatermelon());
             case 4:
@@ -38,10 +38,10 @@ public class ObjectFactory {
 
     public Fruit createSpecialFruit(String fruitType){
         switch (fruitType){
-            case "F":
-                return new FreezeFruit(images.getFreezeFruit());
-            case "M":
-                return new MultiplierFruit(images.getMultiplierFruit());
+            case "F1":
+                return new SpecialFruitOne(images.getSpecialFruit1());
+            case "F2":
+                return new SpecialFruitTwo(images.getSpecialFruit2());
             default:
                 return null;
         }
@@ -51,9 +51,9 @@ public class ObjectFactory {
     public Bombs createBomb(String bombType){
         switch (bombType){
             case "F":
-//                return new FatalBomb(images.getFatalBomb());
+                return new FatalBomb(images.getFatalBomb());
             case "D":
-//                return new DangerousBomb(images.getDangerousBomb());
+                return new DangerousBomb(images.getDangerousBomb());
             default:
                 return null;
         }
