@@ -47,7 +47,7 @@ public class AnimationGUI {
 //		timeline.setCycleCount(Timeline.INDEFINITE);
 //		timeline.play();
 //
-//	}
+///	}
 	
 	
 	public void move3(ImageView fruit) {
