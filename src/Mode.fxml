@@ -12,21 +12,6 @@
             <Image url="@Background.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="sword" fitHeight="39.0" fitWidth="52.0" layoutX="726.0" layoutY="18.0" pickOnBounds="true" rotate="129.8" smooth="false">
-         <image>
-            <Image url="@sword.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="sword1" fitHeight="39.0" fitWidth="52.0" layoutX="681.0" layoutY="10.0" pickOnBounds="true" rotate="132.1" smooth="false">
-         <image>
-            <Image url="@sword.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="sword11" fitHeight="39.0" fitWidth="52.0" layoutX="636.0" layoutY="10.0" pickOnBounds="true" rotate="135.0" smooth="false">
-         <image>
-            <Image url="@sword.png" />
-         </image>
-      </ImageView>
       <HBox alignment="CENTER" layoutY="719.0" prefHeight="80.0" prefWidth="800.0">
          <children>
             <ImageView fx:id="fruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
@@ -34,57 +19,85 @@
                   <Image url="@raspberry.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@peach.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bomb1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@bomb.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit21" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fruit3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@watermelon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit23" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@bomb.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit24" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@banana.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit11" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fruit4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@raspberry.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit12" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bomb2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@bomb.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit13" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fruit5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@raspberry.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fruit14" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fruit6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@watermelon.png" />
                </image>
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="fruit22" fitHeight="80.0" fitWidth="80.0" layoutX="339.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@banana.png" />
-         </image>
-      </ImageView>
+      <HBox alignment="CENTER" layoutX="142.0" layoutY="-105.0" prefHeight="79.0" prefWidth="515.0" spacing="200.0">
+         <children>
+            <ImageView fx:id="superFruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@banana.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="superFruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@banana.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="622.0" layoutY="14.0" prefHeight="57.0" prefWidth="164.0">
+         <children>
+            <ImageView fx:id="sword" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
+               <image>
+                  <Image url="@sword.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sword1" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
+               <image>
+                  <Image url="@sword.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sword11" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
+               <image>
+                  <Image url="@sword.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

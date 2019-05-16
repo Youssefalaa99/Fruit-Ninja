@@ -7,7 +7,9 @@ import javafx.animation.Timeline;
 import javafx.event.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.ArcTo;
 import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
@@ -15,75 +17,50 @@ import javafx.util.Duration;
 public class AnimationGUI {
 
 	private PathTransition pathtrans;
+	int i;
+	public void moveFruit(ImageView fruit, int delay, int cycle, int x1 , int x2) {
+i = 0;
+		Timeline timeline = new Timeline();
 
-	public void move1(ImageView fruit, int delay, int cycle) {
+		timeline.getKeyFrames()
+				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomPath(fruit, delay, cycle,x1,x2)));
+//		timeline.setDelay(Duration.millis(randomNum));
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		timeline.play();
+
+	}
+
+	public void moveBomb(ImageView Bomb, int delay, int cycle, int x1, int x2) {
 		int randomNum = ThreadLocalRandom.current().nextInt(500, 2000 + 1);
 
 		Timeline timeline = new Timeline();
 
-		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomPath(fruit, delay, cycle)));
+		timeline.getKeyFrames()
+				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(Bomb, delay, cycle, x1, x2)));
 		timeline.setDelay(Duration.millis(randomNum));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
 
 	}
 
-//	public void move2(ImageView fruit) {
-//
-//		Timeline timeline = new Timeline();
-//
-//		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit, 4, 0)));
-//		timeline.setCycleCount(Timeline.INDEFINITE);
-//		timeline.setDelay(Duration.millis(3000));
-//		timeline.play();
-//
-//	}
-//
-//	public void move3(ImageView fruit) {
-//
-//		Timeline timeline = new Timeline();
-//
-//		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit, 9, 0)));
-//		timeline.setCycleCount(Timeline.INDEFINITE);
-//		timeline.play();
-///
-///	}
-	
-	
-	public void move3(ImageView fruit) {
-		
+	public void moveSuper(ImageView fruit, int delay, int cycle) {
+
 		Timeline t = new Timeline();
-		t.getKeyFrames().addAll(new KeyFrame(Duration.seconds(3), new KeyValue(fruit.yProperty(), 600),
-				new KeyValue(fruit.rotateProperty(), 720)));
+		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle)));
 		t.setCycleCount(1000);
 		t.play();
 
 	}
-	
-	
-	
-	public void move4(ImageView fruit, int delay, int cycle) {
-		int randomNum = ThreadLocalRandom.current().nextInt(500, 2000 + 1);
 
-		Timeline timeline = new Timeline();
-
-		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomPath1(fruit, delay, cycle)));
-		timeline.setDelay(Duration.millis(randomNum));
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
-
-	}
-	
-	
-
-	public EventHandler<ActionEvent> randomPath(ImageView fruit, int delay, int cycle) {
+	public EventHandler<ActionEvent> randomPath(ImageView fruit, int delay, int cycle, int x1, int x2) {
 
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
+			fruit.setDisable(false);
 //			fruit.setImage(new Image("watermelon.png"));
 			Path path = new Path();
 			path.getElements().add(new MoveTo(0, 0));
-			path.getElements().add(new CubicCurveTo(0, -500, 350, -500, 500, 0));
+			path.getElements().add(new CubicCurveTo(0, -800, x1, -800, x2, 0));
 			pathtrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathtrans.setDelay(Duration.millis(delay));
 			pathtrans.play();
@@ -94,26 +71,40 @@ public class AnimationGUI {
 
 	}
 	
-	
-	public EventHandler<ActionEvent> randomPath1(ImageView fruit, int delay, int cycle) {
+	public EventHandler<ActionEvent> randomBombPath(ImageView fruit, int delay, int cycle, int x1, int x2) {
 
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
-	        Path path = new Path();
+			fruit.setDisable(false);
+//			fruit.setImage(new Image("watermelon.png"));
+			Path path = new Path();
 			path.getElements().add(new MoveTo(0, 0));
-			path.getElements().add(new CubicCurveTo(0, -500, 500, -900, -500, 0));
+			path.getElements().add(new CubicCurveTo(0, -800, x1, -800, x2, 0));
 			pathtrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathtrans.setDelay(Duration.millis(delay));
 			pathtrans.play();
-			
 
 		};
 
 		return event;
 
 	}
-	
-	
-	
+	public EventHandler<ActionEvent> randomSuperPath(ImageView fruit, int delay, int cycle) {
 
+		EventHandler<ActionEvent> event = e -> {
+			fruit.setVisible(true);
+			fruit.setDisable(false);
+//			fruit.setImage(new Image("watermelon.png"));
+			Path path = new Path();
+			path.getElements().add(new MoveTo(0, 0));
+			path.getElements().add(new LineTo(0, 1000));
+			pathtrans = new PathTransition(Duration.millis(cycle), path, fruit);
+			pathtrans.setDelay(Duration.millis(delay));
+			pathtrans.play();
+
+		};
+
+		return event;
+
+	}
 }
