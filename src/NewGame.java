@@ -28,18 +28,15 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 
 public class NewGame implements Initializable {
-	@FXML
-	private ImageView sword;
-	@FXML
-	private Button start;
-	@FXML
-	private ImageView fruit1;
-	@FXML
-	private ImageView fruit2;
-	@FXML
-	private ImageView fruit3;
-	@FXML
-	private AnchorPane pane;
+	@FXML private ImageView sword;
+	@FXML private Button start;
+	@FXML private ImageView fruit1;
+	@FXML private ImageView fruit2;
+	@FXML private ImageView fruit3;
+	@FXML private AnchorPane pane;
+	@FXML private ImageView fruit14;
+	@FXML private ImageView fruit22;
+	@FXML private ImageView fruit13;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -51,6 +48,8 @@ public class NewGame implements Initializable {
 		ani.move1(fruit1,1000,3000);
 		ani.move1(fruit2,2000,2000);
 		ani.move1(fruit3,500,2500);
+		ani.move4(fruit14,1000,3000);
+		ani.move3(fruit22);
 
 		pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
             pane.startFullDrag();
