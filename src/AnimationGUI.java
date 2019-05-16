@@ -46,7 +46,7 @@ public class AnimationGUI {
 //		timeline.getKeyFrames().addAll(new KeyFrame(Duration.millis(3000), randomKeyFrame(fruit, 9, 0)));
 //		timeline.setCycleCount(Timeline.INDEFINITE);
 //		timeline.play();
-//
+///
 ///	}
 	
 	
