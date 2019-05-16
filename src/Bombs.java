@@ -1,46 +1,65 @@
 import javafx.scene.image.Image;
 
 public abstract class Bombs implements GameObject {
+    private int Xlocation;
+    private int Ylocation;
+    private int maxHeight;
+    private int initialVelocity;
+    private int fallingVelocity;
+    private Boolean isSliced;
+    private Boolean hasMovedOffScreen;
+    private Image image;
 
+
+    public Bombs(Image image){
+        Xlocation=0;
+        Ylocation=0;
+        maxHeight=0;
+        initialVelocity=0;
+        fallingVelocity=0;
+        isSliced=false;
+        hasMovedOffScreen=false;
+        this.image =image;
+    }
 
     @Override
     public int getXlocation() {
-        return 0;
+        return Xlocation;
     }
 
     @Override
     public int getYlocation() {
-        return 0;
+        return Ylocation;
     }
 
     @Override
     public int getMaxHeight() {
-        return 0;
+        return maxHeight;
     }
 
     @Override
     public int getInitialVelocity() {
-        return 0;
+        return initialVelocity;
     }
 
     @Override
-    public int getVelocity() {
-        return 0;
+    public int getFallingVelocity() {
+        return fallingVelocity;
     }
 
     @Override
     public boolean isSliced() {
-        return false;
+        return isSliced;
     }
 
     @Override
     public boolean hasMovedOffScreen() {
-        return false;
+        return hasMovedOffScreen;
     }
 
     @Override
     public void slice() {
-
+    isSliced=true;
     }
 
     @Override
@@ -49,7 +68,7 @@ public abstract class Bombs implements GameObject {
     }
 
     @Override
-    public Image[] getImages() {
-        return new Image[0];
+    public Image getImage() {
+        return image;
     }
 }

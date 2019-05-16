@@ -1,16 +1,16 @@
 public class EasyLevel implements Level {
     @Override
-    public int getLevelSpeed() {
+    public double getLevelSpeed() {
         return 1;
     }
 
     @Override
-    public int getNoOfBombs() {
+    public double getNoOfBombs() {
         return 1;
     }
 
     @Override
-    public int getNoOfFruits() {
+    public double getNoOfFruits() {
         return 1;
     }
 }

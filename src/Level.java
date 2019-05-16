@@ -1,10 +1,5 @@
 public interface Level {
-
-
-      public int getLevelSpeed();
-
-      public int getNoOfBombs();
-
-      public int getNoOfFruits();
-
+      public double getLevelSpeed();
+      public double getNoOfBombs();
+      public double getNoOfFruits();
 }
