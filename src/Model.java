@@ -8,7 +8,7 @@ public class Model {
         lives = 3 ;
         currentScore = 0;
         //Object class XmlFile
-        //highscore=load...
+        //highScore=load...
         setLevel(level);
     }
 
@@ -20,9 +20,7 @@ public class Model {
         return lives;
     }
 
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
+   
 
     public int getCurrentScore() {
         return currentScore;
@@ -42,5 +40,13 @@ public class Model {
 
     public Level getLevel() {
         return level;
+    }
+    
+    public void removeLife() {
+    	lives--;
+    	
+    	if(lives==0) {
+    		
+    	}
     }
 }

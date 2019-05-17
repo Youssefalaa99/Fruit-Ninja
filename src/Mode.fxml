@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewGame">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEngine">
    <children>
       <ImageView fitHeight="605.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true">
          <image>
@@ -80,24 +80,6 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutX="622.0" layoutY="14.0" prefHeight="57.0" prefWidth="164.0">
-         <children>
-            <ImageView fx:id="sword" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
-               <image>
-                  <Image url="@sword.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="sword1" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
-               <image>
-                  <Image url="@sword.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="sword11" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
-               <image>
-                  <Image url="@sword.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
+      <HBox fx:id="livesBox" layoutX="622.0" layoutY="14.0" prefHeight="57.0" prefWidth="164.0" />
    </children>
 </AnchorPane>

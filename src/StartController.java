@@ -31,13 +31,23 @@ public class StartController implements Initializable {
 
 	public void startGame(ActionEvent event) throws IOException {
 
+		Level level = new EasyLevel();
+		
 		FXMLLoader loader = new FXMLLoader();
+		
 		loader.setLocation(getClass().getResource("Mode.fxml"));
-		Parent GameGUI = loader.load();
 
+		Parent GameGUI = loader.load();
+		
 		Scene GameScene = new Scene(GameGUI);
 
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+		GameEngine engine = GameEngine.getInstance();
+		
+		engine = loader.getController();
+		engine.newGame(level);
+		
 		window.setScene(GameScene);
 
 		window.show();
@@ -54,9 +64,7 @@ public class StartController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		chooseLevel.getItems().addAll("Classic", "Arcade","Multiplayer");
-		chooseLevel.setValue("Classic");
+
 	}
 
-	
 }
