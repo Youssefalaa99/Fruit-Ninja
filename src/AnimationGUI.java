@@ -46,7 +46,7 @@ i = 0;
 	public void moveSuper(ImageView fruit, int delay, int cycle) {
 
 		Timeline t = new Timeline();
-		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle)));
+		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
 		t.setCycleCount(1000);
 		t.play();
 

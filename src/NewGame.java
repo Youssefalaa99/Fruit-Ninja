@@ -64,6 +64,7 @@ public class NewGame implements Initializable {
 		ImageCursor imgcursor1 = new ImageCursor(new Image("CursorEffect.png"));
 		pane.setCursor(imgcursor);
 		AnimationGUI ani = new AnimationGUI();
+		
 		ani.moveFruit(fruit1, ThreadLocalRandom.current().nextInt(5000, 10000),
 				ThreadLocalRandom.current().nextInt(2000, 4000), 350, 500);
 		ani.moveFruit(fruit2, ThreadLocalRandom.current().nextInt(1000, 3000),
@@ -81,9 +82,9 @@ public class NewGame implements Initializable {
 		ani.moveBomb(bomb2, ThreadLocalRandom.current().nextInt(2000, 5000),
 				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
 		ani.moveSuper(superFruit1, ThreadLocalRandom.current().nextInt(10000, 20000),
-				ThreadLocalRandom.current().nextInt(2000, 3000));
+				ThreadLocalRandom.current().nextInt(4000, 5000));
 		ani.moveSuper(superFruit2, ThreadLocalRandom.current().nextInt(10000, 20000),
-				ThreadLocalRandom.current().nextInt(2000, 3000));
+				ThreadLocalRandom.current().nextInt(4000, 5000));
 		pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
 			pane.startFullDrag();
 		});
