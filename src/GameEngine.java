@@ -9,6 +9,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 
 public class GameEngine implements GameActions, Initializable {
 	private static GameEngine instance = null;
@@ -69,15 +72,48 @@ public class GameEngine implements GameActions, Initializable {
 	}
 
 	public Fruit createFruit() {
-		return factory.createFruit();
+		int startXLeft;
+		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
+		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
+		int startXRight;
+		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
+		Path pathLeft = new Path();
+		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
+		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
+		Path pathRight = new Path();
+		pathRight.getElements().add(new MoveTo(startXRight, 0));
+		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
+		return factory.createFruit(pathRight,pathLeft);
 	}
 
 	public Bombs createBomb() {
-		return factory.createBomb();
+		int startXLeft;
+		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
+		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
+		int startXRight;
+		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
+		Path pathLeft = new Path();
+		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
+		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
+		Path pathRight = new Path();
+		pathRight.getElements().add(new MoveTo(startXRight, 0));
+		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
+		return factory.createBomb(pathRight,pathLeft);
 	}
 
 	public Fruit createSpecialFruit() {
-		return factory.createSpecialFruit();
+		int startXLeft;
+		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
+		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
+		int startXRight;
+		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
+		Path pathLeft = new Path();
+		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
+		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
+		Path pathRight = new Path();
+		pathRight.getElements().add(new MoveTo(startXRight, 0));
+		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
+		return factory.createSpecialFruit(pathRight,pathLeft);
 	}
 
 	@Override

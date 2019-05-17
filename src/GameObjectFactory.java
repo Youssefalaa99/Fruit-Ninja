@@ -1,3 +1,4 @@
+import javafx.scene.shape.Path;
 import java.util.Random;
 
 public class GameObjectFactory {
@@ -16,49 +17,48 @@ public class GameObjectFactory {
 
     }
 
-    public Fruit createFruit(){
+    public Fruit createFruit(Path right,Path left){
         Random random=new Random();
         int x=random.nextInt(5);
-
         switch (x){
             case 0:
-                return new Fruit(images.getBanana());
+                return new Fruit(images.getBananaImages(),right,left);
             case 1:
-                return new Fruit(images.getRaspberry());
+                return new Fruit(images.getRaspberryImages(),right,left);
             case 2:
-                return new Fruit(images.getPeach());
+                return new Fruit(images.getPeachImages(),right,left);
             case 3:
-                return new Fruit(images.getWatermelon());
+                return new Fruit(images.getWatermelonImages(),right,left);
             default:
                 return null;
         }
     }
 
-    public Fruit createSpecialFruit(){
+    public Fruit createSpecialFruit(Path right,Path left){
     	Random random=new Random();
         int x=random.nextInt(3);
     	System.out.println(x);
         switch (x){
             case 0:
-                return new SpecialFruitOne(images.getSpecialFruit1());
+                return new SpecialFruitOne(images.getSpecialFruit1Images(),right,left);
             case 1:
-            	return new SpecialFruitOne(images.getSpecialFruit1());
+            	return new SpecialFruitOne(images.getSpecialFruit1Images(),right,left);
             default:
-            	return new SpecialFruitTwo(images.getSpecialFruit2());
+            	return new SpecialFruitTwo(images.getSpecialFruit2Images(),right,left);
         }
 
     }
 
-    public Bombs createBomb(){
+    public Bombs createBomb(Path right,Path left){
     	Random random=new Random();
         int x=random.nextInt(3);
     	switch (x){
             case 0:
-            	return new DangerousBomb(images.getDangerousBomb());
+            	return new DangerousBomb(images.getDangerousBombImages(),right,left);
             case 1:
-            	return new DangerousBomb(images.getDangerousBomb());
+            	return new DangerousBomb(images.getDangerousBombImages(),right,left);
             default:
-            	return new FatalBomb(images.getFatalBomb());
+            	return new FatalBomb(images.getFatalBombImages(),right,left);
         }
     }
 

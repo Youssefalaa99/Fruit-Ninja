@@ -1,4 +1,5 @@
 import javafx.scene.image.Image;
+import javafx.scene.shape.Path;
 
 public abstract class Bombs implements GameObject {
     private int Xlocation;
@@ -8,10 +9,12 @@ public abstract class Bombs implements GameObject {
     private int fallingVelocity;
     private Boolean isSliced;
     private Boolean hasMovedOffScreen;
-    private Image image;
+    private Image[] image;
+    private Path rightPath;
+    private Path leftPath;
 
 
-    public Bombs(Image image){
+    public Bombs(Image[] image,Path right,Path left){
         Xlocation=0;
         Ylocation=0;
         maxHeight=0;
@@ -20,6 +23,8 @@ public abstract class Bombs implements GameObject {
         isSliced=false;
         hasMovedOffScreen=false;
         this.image =image;
+        rightPath=right;
+        leftPath=left;
     }
 
     @Override
@@ -68,7 +73,15 @@ public abstract class Bombs implements GameObject {
     }
 
     @Override
-    public Image getImage() {
+    public Image[] getImage() {
         return image;
+    }
+
+    public Path getRightPath() {
+        return rightPath;
+    }
+
+    public Path getLeftPath() {
+        return leftPath;
     }
 }

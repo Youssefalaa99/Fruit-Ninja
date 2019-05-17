@@ -64,7 +64,7 @@ public class AnimationGUI {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
 			try {
-				fruit.setImage(GameObjectFactory.getInstance().createFruit().getImage());	
+				fruit.setImage(object.getImage()[0]);
 			} catch (Exception e2) {
 				fruit.setImage(new Image("peach.png"));
 			}
@@ -105,7 +105,7 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			fruit.setImage(GameObjectFactory.getInstance().createSpecialFruit().getImage());
+			fruit.setImage(object.getImage()[0]);
 			Path path = new Path();
 			path.getElements().add(new MoveTo(0, 0));
 			path.getElements().add(new LineTo(0, 1000));

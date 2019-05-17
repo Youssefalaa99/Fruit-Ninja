@@ -1,4 +1,5 @@
 import javafx.scene.image.Image;
+import javafx.scene.shape.Path;
 
 import java.util.Random;
 
@@ -10,10 +11,12 @@ public class Fruit implements GameObject {
     private int fallingVelocity;
     private Boolean isSliced;
     private Boolean hasMovedOffScreen;
-    private Image image;
+    private Image[] image;
+    private Path rightPath;
+    private Path leftPath;
     private int sliceScore = 1;
 
-    public Fruit(Image image){
+    public Fruit(Image[] image,Path right,Path left){
         Xlocation = 0;
         Ylocation = 0;
         maxHeight = 0;
@@ -22,6 +25,8 @@ public class Fruit implements GameObject {
         isSliced = false;
         hasMovedOffScreen = false;
         this.image = image;
+        rightPath=right;
+        leftPath=left;
     }
 
     public int getSliceScore() {
@@ -101,7 +106,15 @@ public class Fruit implements GameObject {
     }
 
     @Override
-    public Image getImage() {
+    public Image[] getImage() {
         return image;
+    }
+
+    public Path getRightPath() {
+        return rightPath;
+    }
+
+    public Path getLeftPath() {
+        return leftPath;
     }
 }

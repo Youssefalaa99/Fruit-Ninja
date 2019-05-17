@@ -48,7 +48,7 @@ public interface GameObject {
     *@return at least two images of the object, one when it is
     sliced and one when it is not.
     */
-    public Image getImage();
+    public Image[] getImage();
 
 
 }
