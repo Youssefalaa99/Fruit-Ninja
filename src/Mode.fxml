@@ -1,85 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEngine">
-   <children>
-      <ImageView fitHeight="605.0" fitWidth="800.0" layoutY="-1.0" pickOnBounds="true">
-         <image>
-            <Image url="@Background.jpeg" />
-         </image>
-      </ImageView>
-      <HBox alignment="CENTER" layoutY="719.0" prefHeight="80.0" prefWidth="800.0">
-         <children>
-            <ImageView fx:id="fruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@raspberry.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@peach.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bomb1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@bomb.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="fruit3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@watermelon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@bomb.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@banana.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="fruit4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@raspberry.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bomb2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@bomb.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="fruit5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@raspberry.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="fruit6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@watermelon.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutX="142.0" layoutY="-105.0" prefHeight="79.0" prefWidth="515.0" spacing="200.0">
-         <children>
-            <ImageView fx:id="superFruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@banana.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="superFruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@banana.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox fx:id="livesBox" layoutX="622.0" layoutY="14.0" prefHeight="57.0" prefWidth="164.0" />
-   </children>
+	<children>
+		<ImageView fitHeight="605.0" fitWidth="800.0" layoutY="-4.0" pickOnBounds="true">
+			<image>
+				<Image url="@Background.jpeg" />
+			</image>
+		</ImageView>
+		<HBox alignment="CENTER" layoutY="719.0" prefHeight="80.0" prefWidth="800.0">
+			<children>
+				<ImageView fx:id="fruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@raspberry.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@banana.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="bomb1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@bomb.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@watermelon.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@bomb.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@banana.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@raspberry.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="bomb2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@bomb.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@raspberry.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@watermelon.png" />
+					</image>
+				</ImageView>
+			</children>
+		</HBox>
+		<HBox alignment="CENTER" layoutX="142.0" layoutY="-189.0" prefHeight="164.0" prefWidth="515.0" spacing="200.0">
+			<children>
+				<ImageView fx:id="superFruit1" fitHeight="139.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@peach.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="superFruit2" fitHeight="141.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
+					<image>
+						<Image url="@peach.png" />
+					</image>
+				</ImageView>
+			</children>
+		</HBox>
+		<HBox fx:id="livesBox" layoutX="622.0" layoutY="14.0" prefHeight="57.0" prefWidth="164.0">
+			<children>
+				<ImageView fx:id="sword" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
+					<image>
+						<Image url="@sword.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="sword1" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
+					<image>
+						<Image url="@sword.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="sword11" fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" rotate="127.4" smooth="false">
+					<image>
+						<Image url="@sword.png" />
+					</image>
+				</ImageView>
+			</children>
+		</HBox>
+		<Label layoutX="32.0" layoutY="31.0" prefHeight="68.0" prefWidth="113.0" text="Score" textFill="#499743">
+			<font>
+				<Font name="Bodoni MT Black" size="37.0" />
+			</font>
+		</Label>
+		<Label fx:id="score" layoutX="30.0" layoutY="113.0" prefHeight="73.0" prefWidth="115.0" textFill="#68bf62">
+			<font>
+				<Font size="23.0" />
+			</font>
+		</Label>
+	</children>
 </AnchorPane>

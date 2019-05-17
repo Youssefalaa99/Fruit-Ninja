@@ -28,7 +28,7 @@ public class AnimationGUI {
 		Timeline timeline = new Timeline();
 
 		timeline.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomPath(fruit, delay, cycle, x1, x2,object)));
+				.add(new KeyFrame(Duration.millis(delay + cycle), randomPath(fruit, delay, cycle, x1, x2,object), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
@@ -51,7 +51,8 @@ public class AnimationGUI {
 	public void moveSuper(ImageView fruit, int delay, int cycle,GameObject object) {
 
 		Timeline t = new Timeline();
-		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle,object)));
+
+		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle,object), new KeyValue(fruit.rotateProperty(), 360)));
 		t.setCycleCount(1000);
 		t.play();
 
@@ -63,7 +64,7 @@ public class AnimationGUI {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
 			try {
-				fruit.setImage(object.getImage());	
+				fruit.setImage(GameObjectFactory.getInstance().createFruit().getImage());	
 			} catch (Exception e2) {
 				fruit.setImage(new Image("peach.png"));
 			}
@@ -104,7 +105,7 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			fruit.setImage(object.getImage());
+			fruit.setImage(GameObjectFactory.getInstance().createSpecialFruit().getImage());
 			Path path = new Path();
 			path.getElements().add(new MoveTo(0, 0));
 			path.getElements().add(new LineTo(0, 1000));
