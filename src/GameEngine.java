@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -47,7 +48,12 @@ public class GameEngine implements GameActions, Initializable {
 	@FXML
 	private HBox livesBox;
 
-//	
+	AudioClip slice=new AudioClip(this.getClass().getResource("slicing.wav").toString());
+	AudioClip gameover=new AudioClip(this.getClass().getResource("gameover.wav").toString());
+	AudioClip bomb=new AudioClip(this.getClass().getResource("bomb.wav").toString());
+	
+	
+	
 //    private GameEngine(){
 //
 //    }
@@ -127,6 +133,8 @@ public class GameEngine implements GameActions, Initializable {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				fruit1.setVisible(false);
 				fruit1.setDisable(true);
+				slice.play();
+				
 				// fruit1.slice(true);
 			}
 		});
@@ -134,6 +142,7 @@ public class GameEngine implements GameActions, Initializable {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				fruit2.setVisible(false);
 				fruit2.setDisable(true);
+				slice.play();
 			}
 		});
 
@@ -142,18 +151,20 @@ public class GameEngine implements GameActions, Initializable {
 				fruit3.setVisible(false);
 				fruit3.setDisable(true);
 				// fruit1.slice(true);
+				slice.play();
 			}
 		});
 		fruit4.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				fruit4.setVisible(false);
 				fruit4.setDisable(true);
+				slice.play();
 			}
 		});
 		fruit5.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				fruit5.setVisible(false);
-
+				slice.play();
 				fruit5.setDisable(true);
 				// fruit1.slice(true);
 			}
@@ -161,7 +172,7 @@ public class GameEngine implements GameActions, Initializable {
 		fruit6.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				fruit6.setVisible(false);
-
+				slice.play();
 				fruit6.setDisable(true);
 			}
 		});
@@ -169,7 +180,7 @@ public class GameEngine implements GameActions, Initializable {
 		superFruit1.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				superFruit1.setVisible(false);
-
+				slice.play();
 				superFruit1.setDisable(true);
 
 			}
@@ -177,7 +188,7 @@ public class GameEngine implements GameActions, Initializable {
 		superFruit2.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				superFruit2.setVisible(false);
-
+				slice.play();
 				superFruit2.setDisable(true);
 				// fruit1.slice(true);
 			}
@@ -186,14 +197,14 @@ public class GameEngine implements GameActions, Initializable {
 		bomb1.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb1.setVisible(false);
-
+                bomb.play();
 				bomb1.setDisable(true);
 			}
 		});
 		bomb2.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb2.setVisible(false);
-
+                gameover.play();
 				bomb2.setDisable(true);
 				// fruit1.slice(true);
 			}

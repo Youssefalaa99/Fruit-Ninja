@@ -6,6 +6,12 @@ public class SpecialFruitOne extends FruitDecorator {
     public SpecialFruitOne(Fruit fruit){
         super(fruit);
     }
+    
+    public SpecialFruitOne(Fruit fruit){
+        super(fruit);
+    }
+    
+    
 
     @Override
     public int getSliceScore() {
