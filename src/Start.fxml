@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -27,7 +29,7 @@
          </font>
       </Button>
       <ComboBox layoutX="172.0" layoutY="216.0" prefHeight="38.0" prefWidth="150.0" promptText="-Choose difficulty-" />
-      <Button layoutX="48.0" layoutY="302.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="70.0" style="-fx-background-radius: 200;" text="Arcade">
+      <Button fx:id="arcade" layoutX="48.0" layoutY="302.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="70.0" style="-fx-background-radius: 200;" text="Arcade">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
@@ -39,6 +41,13 @@
          <effect>
             <InnerShadow color="#a6a83d" />
          </effect>
+      </Text>
+      <ListView layoutX="309.0" layoutY="358.0" prefHeight="121.0" prefWidth="180.0" />
+      <ScrollBar layoutX="475.0" layoutY="358.0" orientation="VERTICAL" prefHeight="121.0" prefWidth="14.0" />
+      <Text fill="#c3eb25" layoutX="309.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Highest Score:">
+         <font>
+            <Font name="Comic Sans MS" size="21.0" />
+         </font>
       </Text>
    </children>
 </AnchorPane>
