@@ -134,6 +134,7 @@ public class GameEngine implements GameActions, Initializable {
 				fruit1.setVisible(false);
 				fruit1.setDisable(true);
 				slice.play();
+				
 				// fruit1.slice(true);
 			}
 		});
@@ -179,7 +180,7 @@ public class GameEngine implements GameActions, Initializable {
 		superFruit1.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				superFruit1.setVisible(false);
-
+				slice.play();
 				superFruit1.setDisable(true);
 
 			}
@@ -187,7 +188,7 @@ public class GameEngine implements GameActions, Initializable {
 		superFruit2.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				superFruit2.setVisible(false);
-
+				slice.play();
 				superFruit2.setDisable(true);
 				// fruit1.slice(true);
 			}
@@ -203,7 +204,7 @@ public class GameEngine implements GameActions, Initializable {
 		bomb2.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb2.setVisible(false);
-                bomb.play();
+                gameover.play();
 				bomb2.setDisable(true);
 				// fruit1.slice(true);
 			}
