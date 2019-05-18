@@ -64,6 +64,7 @@ public class StartController implements Initializable {
 	public void exitGame() {
 		Stage stage = (Stage) exitBtn.getScene().getWindow();
 		stage.close();
+		//
 	}
 
 	@Override
