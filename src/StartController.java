@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class StartController implements Initializable {
@@ -28,6 +29,8 @@ public class StartController implements Initializable {
 	private Button exitBtn;
 	@FXML
 	public ListView<String> chooseLoad;
+	AudioClip start=new AudioClip(this.getClass().getResource("start.wav").toString());
+	
 
 	public void startGame(ActionEvent event) throws IOException {
 
@@ -47,6 +50,7 @@ public class StartController implements Initializable {
 		
 		engine = loader.getController();
 		engine.newGame(level);
+		start.stop();
 		
 		window.setScene(GameScene);
 
@@ -65,6 +69,10 @@ public class StartController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		
+	    start.setCycleCount(AudioClip.INDEFINITE);
+	    start.play();
+		
 	}
 
 }
