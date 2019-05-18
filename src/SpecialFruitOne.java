@@ -9,6 +9,12 @@ public class SpecialFruitOne extends SpecialFruit {
     public SpecialFruitOne(Image[] image, Path path){
         super(image,path);
     }
+    
+    public SpecialFruitOne(Fruit fruit){
+        super(fruit);
+    }
+    
+    
 
     @Override
     public int getSliceScore() {
