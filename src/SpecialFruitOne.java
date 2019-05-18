@@ -6,8 +6,8 @@ import java.util.Random;
 public class SpecialFruitOne extends Fruit {
     private final int sliceScore=5;
 
-    public SpecialFruitOne(Image[] image, Path right, Path left){
-        super(image,right,left);
+    public SpecialFruitOne(Image[] image, Path path){
+        super(image,path);
     }
 
     @Override

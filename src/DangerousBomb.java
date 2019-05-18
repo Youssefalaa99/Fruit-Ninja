@@ -3,8 +3,8 @@ import javafx.scene.shape.Path;
 
 public class DangerousBomb extends Bombs {
 
-	public DangerousBomb(Image[] image, Path right, Path left){
-		super(image,right,left);
+	public DangerousBomb(Image[] image, Path path){
+		super(image,path);
 	}
 
 	public int changes(int lives) {

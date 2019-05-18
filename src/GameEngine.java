@@ -70,51 +70,51 @@ public class GameEngine implements GameActions, Initializable {
 	public GameObject createGameObject() {
 		return null;
 	}
-
-	public Fruit createFruit() {
-		int startXLeft;
-		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
-		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
-		int startXRight;
-		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
-		Path pathLeft = new Path();
-		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
-		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
-		Path pathRight = new Path();
-		pathRight.getElements().add(new MoveTo(startXRight, 0));
-		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
-		return factory.createFruit(pathRight,pathLeft);
-	}
-
-	public Bombs createBomb() {
-		int startXLeft;
-		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
-		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
-		int startXRight;
-		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
-		Path pathLeft = new Path();
-		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
-		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
-		Path pathRight = new Path();
-		pathRight.getElements().add(new MoveTo(startXRight, 0));
-		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
-		return factory.createBomb(pathRight,pathLeft);
-	}
-
-	public Fruit createSpecialFruit() {
-		int startXLeft;
-		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
-		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
-		int startXRight;
-		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
-		Path pathLeft = new Path();
-		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
-		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
-		Path pathRight = new Path();
-		pathRight.getElements().add(new MoveTo(startXRight, 0));
-		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
-		return factory.createSpecialFruit(pathRight,pathLeft);
-	}
+//
+//	public Fruit createFruit() {
+//		int startXLeft;
+//		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
+//		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
+//		int startXRight;
+//		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
+//		Path pathLeft = new Path();
+//		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
+//		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
+//		Path pathRight = new Path();
+//		pathRight.getElements().add(new MoveTo(startXRight, 0));
+//		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
+//		return factory.createFruit(pathRight,pathLeft);
+//	}
+//
+//	public Bombs createBomb() {
+//		int startXLeft;
+//		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
+//		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
+//		int startXRight;
+//		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
+//		Path pathLeft = new Path();
+//		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
+//		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
+//		Path pathRight = new Path();
+//		pathRight.getElements().add(new MoveTo(startXRight, 0));
+//		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
+//		return factory.createBomb(pathRight,pathLeft);
+//	}
+//
+//	public Fruit createSpecialFruit() {
+//		int startXLeft;
+//		startXLeft=ThreadLocalRandom.current().nextInt(-275, -75);
+//		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
+//		int startXRight;
+//		startXRight=ThreadLocalRandom.current().nextInt(75, 275);
+//		Path pathLeft = new Path();
+//		pathLeft.getElements().add(new MoveTo(startXLeft, 0));
+//		pathLeft.getElements().add(new CubicCurveTo(0, rdmHeight, 350, rdmHeight, 500, 0));
+//		Path pathRight = new Path();
+//		pathRight.getElements().add(new MoveTo(startXRight, 0));
+//		pathRight.getElements().add(new CubicCurveTo(0, rdmHeight, -350, rdmHeight, -500, 0));
+//		return factory.createSpecialFruit(pathRight,pathLeft);
+//	}
 
 	@Override
 	public void updateObjectsLocations() {
@@ -204,25 +204,25 @@ public class GameEngine implements GameActions, Initializable {
 	
 	public void moveNode() {
 		ani.moveFruit(fruit1, ThreadLocalRandom.current().nextInt(5000, 10000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500, createFruit());
+				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
 		ani.moveFruit(fruit2, ThreadLocalRandom.current().nextInt(1000, 3000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500, createFruit());
+				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
 		ani.moveFruit(fruit3, ThreadLocalRandom.current().nextInt(1000, 5000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500, createFruit());
+				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
 		ani.moveFruit(fruit4, ThreadLocalRandom.current().nextInt(5000, 10000),
-				ThreadLocalRandom.current().nextInt(3000, 6000), -350, -500, createFruit());
+				ThreadLocalRandom.current().nextInt(3000, 6000), -350, -500);
 		ani.moveFruit(fruit5, ThreadLocalRandom.current().nextInt(3000, 5000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500, createFruit());
+				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
 		ani.moveFruit(fruit6, ThreadLocalRandom.current().nextInt(1000, 3000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500, createFruit());
+				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
 		ani.moveFruit(bomb1, ThreadLocalRandom.current().nextInt(5000, 10000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500, createBomb());
+				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
 		ani.moveFruit(bomb2, ThreadLocalRandom.current().nextInt(2000, 5000),
-				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500, createBomb());
+				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
 		ani.moveSuper(superFruit1, ThreadLocalRandom.current().nextInt(10000, 20000),
-				ThreadLocalRandom.current().nextInt(3000, 5000), createSpecialFruit());
+				ThreadLocalRandom.current().nextInt(3000, 5000));
 		ani.moveSuper(superFruit2, ThreadLocalRandom.current().nextInt(10000, 20000),
-				ThreadLocalRandom.current().nextInt(3000, 5000), createSpecialFruit());
+				ThreadLocalRandom.current().nextInt(3000, 5000));
 		
 	}
 
