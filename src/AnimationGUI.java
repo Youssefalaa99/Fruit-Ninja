@@ -51,7 +51,7 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			Fruit object = factory.createFruit();
+			GameObject object = factory.createFruit();
 			try {
 				fruit.setImage(object.getImage()[0]);
 				System.out.println("no Error2");
@@ -85,7 +85,7 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			Bombs object = factory.createBomb();
+			GameObject object = factory.createBomb();
 			try {
 				fruit.setImage(object.getImage()[0]);
 				System.out.println("no Error2");
@@ -137,7 +137,7 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			Fruit object = factory.createSpecialFruit();
+			GameObject object = factory.createSpecialFruit();
 			fruit.setImage(object.getImage()[0]);
 			Path path = object.getPath();
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);

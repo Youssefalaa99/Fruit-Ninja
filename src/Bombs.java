@@ -46,6 +46,11 @@ public abstract class Bombs implements GameObject {
     }
 
     @Override
+    public int getSliceScore() {
+        return 0;
+    }
+
+    @Override
     public int getFallingVelocity() {
         return fallingVelocity;
     }

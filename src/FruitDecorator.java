@@ -1,8 +1,7 @@
 import javafx.scene.image.Image;
 import javafx.scene.shape.Path;
-import java.util.Random;
 
-public abstract class SpecialFruit extends Fruit { // when initialized Fruit specialFruit = new SpecialFruit1 or 2 (parameters);
+public abstract class FruitDecorator implements GameObject{ // when initialized Fruit specialFruit = new SpecialFruit1 or 2 (parameters);
 
 	private int Xlocation;
 	private int Ylocation;
@@ -15,31 +14,15 @@ public abstract class SpecialFruit extends Fruit { // when initialized Fruit spe
 	private Path rdmPath;
 	private int sliceScore = 1;
 
-	private Fruit SpecialFruit;
+	protected Fruit fruit;
 
-	public SpecialFruit(Fruit specialFruit) {
-		super(specialFruit.getImage(),specialFruit.getPath());
-		this.SpecialFruit = specialFruit;
+	public FruitDecorator(Fruit fruit) {
+		this.fruit = fruit;
 	}
 
-	public SpecialFruit(Image[] image, Path path) {
-		super(image,path);
-		Xlocation = 0;
-		Ylocation = 0;
-		maxHeight = 0;
-		initialVelocity = 0;
-		fallingVelocity = 0;
-		isSliced = false;
-		hasMovedOffScreen = false;
-		this.image = image;
-		rdmPath = path;
-	}
 
-	/*
-	 * public int getSliceScore() { return sliceScore; }
-	 */
 	public int getSliceScore() {
-		return SpecialFruit.getSliceScore();
+		return sliceScore;
 	}
 
 	public void setXlocation(int xlocation) {

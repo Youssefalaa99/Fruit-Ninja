@@ -1,4 +1,5 @@
 import javafx.scene.image.Image;
+import javafx.scene.shape.Path;
 
 public interface GameObject {
     /**
@@ -49,6 +50,10 @@ public interface GameObject {
     sliced and one when it is not.
     */
     public Image[] getImage();
+
+    public Path getPath();
+
+    public int getSliceScore();
 
 
 }

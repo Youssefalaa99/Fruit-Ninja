@@ -21,7 +21,7 @@ public class GameObjectFactory {
 
 	}
 
-	public Fruit createFruit() {
+	public GameObject createFruit() {
 		Random random = new Random();
 		int x = random.nextInt(5);
 		switch (x) {
@@ -38,22 +38,24 @@ public class GameObjectFactory {
 		}
 	}
 
-	public Fruit createSpecialFruit() {
+	public GameObject createSpecialFruit() {
 		Random random = new Random();
 		int x = random.nextInt(3);
+		Fruit specialFruitOne = new Fruit(images.getSpecialFruit1Images(), rdmLine());
+		Fruit specialFruitTwo = new Fruit(images.getSpecialFruit2Images(), rdmLine());
 		System.out.println(x);
 		switch (x) {
 		case 0:
-			return new SpecialFruitOne(images.getSpecialFruit1Images(), rdmLine());
+			return new SpecialFruitOne(specialFruitOne);
 		case 1:
-			return new SpecialFruitOne(images.getSpecialFruit1Images(), rdmLine());
+			return new SpecialFruitOne(specialFruitOne);
 		default:
-			return new SpecialFruitTwo(images.getSpecialFruit2Images(), rdmLine());
+			return new SpecialFruitTwo(specialFruitTwo);
 		}
 
 	}
 
-	public Bombs createBomb() {
+	public GameObject createBomb() {
 		Random random = new Random();
 		int x = random.nextInt(3);
 		switch (x) {
