@@ -108,7 +108,7 @@ public class Fruit implements GameObject {
         return image;
     }
 
-    public Path getRightPath() {
+    public Path getPath() {
         return rdmpath;
     }
 

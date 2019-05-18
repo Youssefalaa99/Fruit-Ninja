@@ -90,8 +90,8 @@ public class GameObjectFactory {
 
 	private Path rdmLine() {
 		Path path = new Path();
-		int rdmHieght = ThreadLocalRandom.current().nextInt(-275, 275);
-		path.getElements().add(new MoveTo(rdmHieght, 0));
+		int rdmHeight = ThreadLocalRandom.current().nextInt(-275, 275);
+		path.getElements().add(new MoveTo(rdmHeight, 0));
 		path.getElements().add(new LineTo(0, 1000));
 		System.out.println(path);
 		return path;
