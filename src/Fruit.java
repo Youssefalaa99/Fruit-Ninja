@@ -15,6 +15,10 @@ public class Fruit implements GameObject {
     private Path rightPath;
     private Path leftPath;
     private int sliceScore = 1;
+    
+    public Fruit() {
+    	
+    }
 
     public Fruit(Image[] image,Path right,Path left){
         Xlocation = 0;
