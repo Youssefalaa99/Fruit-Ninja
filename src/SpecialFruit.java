@@ -2,7 +2,7 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Path;
 import java.util.Random;
 
-public abstract class SpecialFruit extends Fruit { // when intialized Fruit specialFruit = new SpecialFruit1 or 2 (parameters);
+public abstract class SpecialFruit extends Fruit { // when initialized Fruit specialFruit = new SpecialFruit1 or 2 (parameters);
 
 	private int Xlocation;
 	private int Ylocation;
