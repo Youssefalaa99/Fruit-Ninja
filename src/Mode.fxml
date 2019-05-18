@@ -14,60 +14,6 @@
 				<Image url="@Background.jpeg" />
 			</image>
 		</ImageView>
-		<HBox alignment="CENTER" layoutY="719.0" prefHeight="80.0" prefWidth="800.0">
-			<children>
-				<ImageView fx:id="fruit1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@raspberry.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@banana.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="bomb1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@bomb.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="fruit3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@watermelon.png" />
-					</image>
-				</ImageView>
-				<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@bomb.png" />
-					</image>
-				</ImageView>
-				<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@banana.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="fruit4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@raspberry.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="bomb2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@bomb.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="fruit5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@raspberry.png" />
-					</image>
-				</ImageView>
-				<ImageView fx:id="fruit6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@watermelon.png" />
-					</image>
-				</ImageView>
-			</children>
-		</HBox>
 		<HBox alignment="CENTER" layoutX="142.0" layoutY="-189.0" prefHeight="164.0" prefWidth="515.0" spacing="200.0">
 			<children>
 				<ImageView fx:id="superFruit1" fitHeight="139.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
@@ -111,5 +57,45 @@
 				<Font size="23.0" />
 			</font>
 		</Label>
+				<ImageView fx:id="fruit1" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@raspberry.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit2" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@banana.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="bomb1" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@bomb.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit3" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@watermelon.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit4" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@raspberry.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="bomb2" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@bomb.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit5" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@raspberry.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="fruit6" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@watermelon.png" />
+					</image>
+				</ImageView>
 	</children>
 </AnchorPane>

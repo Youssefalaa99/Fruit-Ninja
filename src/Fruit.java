@@ -12,15 +12,14 @@ public class Fruit implements GameObject {
     private Boolean isSliced;
     private Boolean hasMovedOffScreen;
     private Image[] image;
-    private Path rightPath;
-    private Path leftPath;
+    private Path rdmpath;
     private int sliceScore = 1;
     
     public Fruit() {
     	
     }
 
-    public Fruit(Image[] image,Path right,Path left){
+    public Fruit(Image[] image,Path path){
         Xlocation = 0;
         Ylocation = 0;
         maxHeight = 0;
@@ -29,9 +28,8 @@ public class Fruit implements GameObject {
         isSliced = false;
         hasMovedOffScreen = false;
         this.image = image;
-        rightPath=right;
-        leftPath=left;
-    }
+        rdmpath=path;
+        }
 
     public int getSliceScore() {
         return sliceScore;
@@ -114,11 +112,9 @@ public class Fruit implements GameObject {
         return image;
     }
 
-    public Path getRightPath() {
-        return rightPath;
+    public Path getPath() {
+        return rdmpath;
     }
 
-    public Path getLeftPath() {
-        return leftPath;
-    }
+    
 }

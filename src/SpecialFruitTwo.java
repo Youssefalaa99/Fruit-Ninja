@@ -5,8 +5,8 @@ public class SpecialFruitTwo extends SpecialFruit {
     private final int sliceScore = 10;
 
 
-    public SpecialFruitTwo(Image[] image, Path right, Path left){
-        super(image,right,left);
+    public SpecialFruitTwo(Image[] image, Path path){
+        super(image,path);
     }
 
     @Override

@@ -10,11 +10,10 @@ public abstract class Bombs implements GameObject {
     private Boolean isSliced;
     private Boolean hasMovedOffScreen;
     private Image[] image;
-    private Path rightPath;
-    private Path leftPath;
+    private Path rdmPath;
 
 
-    public Bombs(Image[] image,Path right,Path left){
+    public Bombs(Image[] image,Path path){
         Xlocation=0;
         Ylocation=0;
         maxHeight=0;
@@ -23,8 +22,7 @@ public abstract class Bombs implements GameObject {
         isSliced=false;
         hasMovedOffScreen=false;
         this.image =image;
-        rightPath=right;
-        leftPath=left;
+        rdmPath=path;
     }
 
     @Override
@@ -77,11 +75,9 @@ public abstract class Bombs implements GameObject {
         return image;
     }
 
-    public Path getRightPath() {
-        return rightPath;
+    public Path getPath() {
+        return rdmPath;
     }
 
-    public Path getLeftPath() {
-        return leftPath;
-    }
+   
 }
