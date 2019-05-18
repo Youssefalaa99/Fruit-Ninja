@@ -12,17 +12,18 @@ public abstract class SpecialFruit extends Fruit { // when initialized Fruit spe
 	private Boolean isSliced;
 	private Boolean hasMovedOffScreen;
 	private Image[] image;
-	private Path rightPath;
-	private Path leftPath;
+	private Path rdmPath;
 	private int sliceScore = 1;
 
 	private Fruit SpecialFruit;
 
-	public SpecialFruit(Fruit SpecialFruit) {
-		this.SpecialFruit = SpecialFruit;
+	public SpecialFruit(Fruit specialFruit) {
+		super(specialFruit.getImage(),specialFruit.getPath());
+		this.SpecialFruit = specialFruit;
 	}
 
-	public SpecialFruit(Image[] image, Path right, Path left) {
+	public SpecialFruit(Image[] image, Path path) {
+		super(image,path);
 		Xlocation = 0;
 		Ylocation = 0;
 		maxHeight = 0;
@@ -31,8 +32,7 @@ public abstract class SpecialFruit extends Fruit { // when initialized Fruit spe
 		isSliced = false;
 		hasMovedOffScreen = false;
 		this.image = image;
-		rightPath = right;
-		leftPath = left;
+		rdmPath = path;
 	}
 
 	/*
@@ -119,12 +119,9 @@ public abstract class SpecialFruit extends Fruit { // when initialized Fruit spe
 		return image;
 	}
 
-	public Path getRightPath() {
-		return rightPath;
+	public Path getPath() {
+		return rdmPath;
 	}
 
-	public Path getLeftPath() {
-		return leftPath;
-	}
 
 }

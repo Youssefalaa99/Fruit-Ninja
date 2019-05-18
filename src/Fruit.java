@@ -14,10 +14,7 @@ public class Fruit implements GameObject {
     private Image[] image;
     private Path rdmpath;
     private int sliceScore = 1;
-    
-    public Fruit() {
-    	
-    }
+
 
     public Fruit(Image[] image,Path path){
         Xlocation = 0;
