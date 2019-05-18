@@ -38,6 +38,7 @@ public abstract class SpecialFruit extends Fruit { // when initialized Fruit spe
 	/*
 	 * public int getSliceScore() { return sliceScore; }
 	 */
+	@Override
 	public int getSliceScore() {
 		return SpecialFruit.getSliceScore();
 	}
