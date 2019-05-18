@@ -23,7 +23,7 @@ public class GameObjectFactory {
 
 	public GameObject createFruit() {
 		Random random = new Random();
-		int x = random.nextInt(5);
+		int x = random.nextInt(4);
 		switch (x) {
 		case 0:
 			return new Fruit(images.getBananaImages(), rdmPath());
