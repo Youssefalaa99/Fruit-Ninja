@@ -225,9 +225,9 @@ public class GameEngine implements GameActions, Initializable {
 				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
 		ani.moveFruit(fruit6, ThreadLocalRandom.current().nextInt(1000, 3000),
 				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
-		ani.moveFruit(bomb1, ThreadLocalRandom.current().nextInt(5000, 10000),
+		ani.moveBomb(bomb1, ThreadLocalRandom.current().nextInt(5000, 10000),
 				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
-		ani.moveFruit(bomb2, ThreadLocalRandom.current().nextInt(2000, 5000),
+		ani.moveBomb(bomb2, ThreadLocalRandom.current().nextInt(2000, 5000),
 				ThreadLocalRandom.current().nextInt(4000, 6000), -350, -500);
 		ani.moveSuper(superFruit1, ThreadLocalRandom.current().nextInt(10000, 20000),
 				ThreadLocalRandom.current().nextInt(3000, 5000));

@@ -3,8 +3,8 @@ import javafx.scene.shape.Path;
 
 import java.util.Random;
 
-public class SpecialFruitOne extends Fruit {
-    private final int sliceScore=5;
+public class SpecialFruitOne extends SpecialFruit {
+    private final int sliceScore = 5;
 
     public SpecialFruitOne(Image[] image, Path path){
         super(image,path);

@@ -15,6 +15,7 @@ public class Fruit implements GameObject {
     private Path rdmpath;
     private int sliceScore = 1;
 
+
     public Fruit(Image[] image,Path path){
         Xlocation = 0;
         Ylocation = 0;
@@ -108,7 +109,7 @@ public class Fruit implements GameObject {
         return image;
     }
 
-    public Path getRightPath() {
+    public Path getPath() {
         return rdmpath;
     }
 
