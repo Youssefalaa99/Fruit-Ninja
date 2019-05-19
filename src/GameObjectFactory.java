@@ -21,50 +21,50 @@ public class GameObjectFactory {
 
 	}
 
-	public GameObject createFruit() {
-		Random random = new Random();
-		int x = random.nextInt(4);
-		switch (x) {
-		case 0:
+	public GameObject createFruit(String fruit) {
+//		Random random = new Random();
+//		int x = random.nextInt(4);
+		switch (fruit) {
+		case "B":
 			return new Fruit(images.getBananaImages(), rdmPath());
-		case 1:
+		case "R":
 			return new Fruit(images.getRaspberryImages(), rdmPath());
-		case 2:
+		case "P":
 			return new Fruit(images.getPeachImages(), rdmPath());
-		case 3:
+		case "W":
 			return new Fruit(images.getWatermelonImages(), rdmPath());
 		default:
 			return null;
 		}
 	}
 
-	public GameObject createSpecialFruit() {
-		Random random = new Random();
-		int x = random.nextInt(3);
+	public GameObject createSpecialFruit(String specialFruit) {
+//		Random random = new Random();
+//		int x = random.nextInt(3);
 		Fruit specialFruitOne = new Fruit(images.getSpecialFruit1Images(), rdmLine());
 		Fruit specialFruitTwo = new Fruit(images.getSpecialFruit2Images(), rdmLine());
-		System.out.println(x);
-		switch (x) {
-		case 0:
+		//System.out.println(x);
+		switch (specialFruit) {
+		case "S1":
 			return new SpecialFruitOne(specialFruitOne);
-		case 1:
-			return new SpecialFruitOne(specialFruitOne);
-		default:
+		case "S2":
 			return new SpecialFruitTwo(specialFruitTwo);
+		default:
+			return null;
 		}
 
 	}
 
-	public GameObject createBomb() {
-		Random random = new Random();
-		int x = random.nextInt(3);
-		switch (x) {
-		case 0:
+	public GameObject createBomb(String bomb) {
+//		Random random = new Random();
+//		int x = random.nextInt(3);
+		switch (bomb) {
+		case "D":
 			return new DangerousBomb(images.getDangerousBombImages(), rdmPath());
-		case 1:
-			return new DangerousBomb(images.getDangerousBombImages(), rdmPath());
-		default:
+		case "F":
 			return new FatalBomb(images.getFatalBombImages(), rdmPath());
+		default:
+			return null;
 		}
 	}
 

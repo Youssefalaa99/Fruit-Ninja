@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
+import java.util.Random;
+
 public class AnimationGUI {
 
 	private PathTransition pathTrans;
@@ -51,7 +53,21 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			GameObject object = factory.createFruit();
+			GameObject object = null;
+			Random random = new Random();
+			int rand = random.nextInt(4);
+			if(rand == 0){
+				object = factory.createFruit("B");
+			}
+			else if(rand == 1){
+				object = factory.createFruit("R");
+			}
+			else if(rand == 2){
+				object = factory.createFruit("P");
+			}
+			else if(rand == 3){
+				object = factory.createFruit("W");
+			}
 			try {
 				fruit.setImage(object.getImage()[0]);
 				System.out.println("no Error2");
@@ -85,7 +101,19 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			GameObject object = factory.createBomb();
+			GameObject object = null;
+			Random random = new Random();
+			int rand = random.nextInt(3);
+			if(rand == 0){
+				object = factory.createBomb("D");
+			}
+			else if(rand == 1){
+				object = factory.createBomb("D");
+			}
+			else if(rand == 2){
+				object = factory.createBomb("F");
+			}
+
 			try {
 				fruit.setImage(object.getImage()[0]);
 				System.out.println("no Error2");
@@ -137,7 +165,19 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			GameObject object = factory.createSpecialFruit();
+			GameObject object = null;
+			Random random = new Random();
+			int rand = random.nextInt(3);
+			if(rand == 0){
+				object = factory.createSpecialFruit("S1");
+			}
+			else if(rand == 1){
+				object = factory.createSpecialFruit("S1");
+			}
+			else if(rand == 2){
+				object = factory.createSpecialFruit("S2");
+			}
+
 			fruit.setImage(object.getImage()[0]);
 			Path path = object.getPath();
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
