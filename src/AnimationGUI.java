@@ -53,6 +53,7 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
+			//To be removed
 			GameObject object = null;
 			Random random = new Random();
 			int rand = random.nextInt(4);
@@ -101,6 +102,7 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
+			//To be removed
 			GameObject object = null;
 			Random random = new Random();
 			int rand = random.nextInt(3);
@@ -165,6 +167,7 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
+			//To be removed
 			GameObject object = null;
 			Random random = new Random();
 			int rand = random.nextInt(3);

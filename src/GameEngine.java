@@ -17,7 +17,6 @@ import javafx.scene.shape.Path;
 public class GameEngine implements GameActions, Initializable {
 	private static GameEngine instance = null;
 	private Model model;
-	private GameObjectFactory factory;
 	private AnimationGUI ani;
 	@FXML
 	private ImageView sword;
@@ -66,8 +65,16 @@ public class GameEngine implements GameActions, Initializable {
 	}
 
 	public void newGame(Level level) {
-		this.factory = GameObjectFactory.getInstance();
+		GameObjectFactory factory = GameObjectFactory.getInstance();
 		this.model = new Model(level);
+		model.addFruit(factory.createFruit("B"));
+		model.addFruit(factory.createFruit("R"));
+		model.addFruit(factory.createFruit("P"));
+		model.addFruit(factory.createFruit("W"));
+		model.addBomb(factory.createBomb("D"));
+		model.addBomb(factory.createBomb("F"));
+		model.addSpecialFruit(factory.createSpecialFruit("S1"));
+		model.addSpecialFruit(factory.createSpecialFruit("S2"));
 		ani= new AnimationGUI();
 		moveNode();
 	}
