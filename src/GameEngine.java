@@ -224,8 +224,7 @@ public class GameEngine implements GameActions, Initializable {
 				// fruit1.slice(true);
 			}
 		});
-
-		renderScore(model);
+		
 	}
 
 	public void renderScore(Model model) {
@@ -305,6 +304,7 @@ public class GameEngine implements GameActions, Initializable {
 		pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
 			pane.startFullDrag();
 		});
+		sliceObjects();
 		sword1.setVisible(false);
 		sword2.setVisible(false);
 		sword3.setVisible(false);
