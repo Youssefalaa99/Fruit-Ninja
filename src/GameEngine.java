@@ -5,6 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,7 +20,11 @@ public class GameEngine implements GameActions, Initializable {
 	private Model model;
 	private AnimationGUI ani;
 	@FXML
-	private ImageView sword;
+	private ImageView sword1;
+	@FXML
+	private ImageView sword2;
+	@FXML
+	private ImageView sword3;
 	@FXML
 	private Button start;
 	@FXML
@@ -46,13 +51,15 @@ public class GameEngine implements GameActions, Initializable {
 	private ImageView superFruit2;
 	@FXML
 	private HBox livesBox;
+	@FXML
+	private Label score;
+	@FXML
+	private Label highscore;
 
-	AudioClip slice=new AudioClip(this.getClass().getResource("slicing.wav").toString());
-	AudioClip gameover=new AudioClip(this.getClass().getResource("gameover.wav").toString());
-	AudioClip bomb=new AudioClip(this.getClass().getResource("bomb.wav").toString());
-	
-	
-	
+	AudioClip slice = new AudioClip(this.getClass().getResource("slicing.wav").toString());
+	AudioClip gameover = new AudioClip(this.getClass().getResource("gameover.wav").toString());
+	AudioClip bomb = new AudioClip(this.getClass().getResource("bomb.wav").toString());
+
 //    private GameEngine(){
 //
 //    }
@@ -75,7 +82,8 @@ public class GameEngine implements GameActions, Initializable {
 		model.addBomb(factory.createBomb("F"));
 		model.addSpecialFruit(factory.createSpecialFruit("S1"));
 		model.addSpecialFruit(factory.createSpecialFruit("S2"));
-		ani= new AnimationGUI();
+		ani = new AnimationGUI();
+		renderScore(model);
 		moveNode();
 	}
 
@@ -141,7 +149,7 @@ public class GameEngine implements GameActions, Initializable {
 				fruit1.setVisible(false);
 				fruit1.setDisable(true);
 				slice.play();
-				
+
 				// fruit1.slice(true);
 			}
 		});
@@ -204,22 +212,55 @@ public class GameEngine implements GameActions, Initializable {
 		bomb1.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb1.setVisible(false);
-                bomb.play();
+				bomb.play();
 				bomb1.setDisable(true);
 			}
 		});
 		bomb2.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb2.setVisible(false);
-                gameover.play();
+				gameover.play();
 				bomb2.setDisable(true);
 				// fruit1.slice(true);
 			}
 		});
 
-	
+		renderScore(model);
 	}
-	
+
+	public void renderScore(Model model) {
+
+		score.setText(Integer.toString(model.getCurrentScore()));
+
+		highscore.setText(Integer.toString(model.getHighScore()));
+		if (model.getLives() == 3) {
+			sword1.setVisible(true);
+			sword2.setVisible(true);
+			sword3.setVisible(true);
+
+		}
+
+		else if (model.getLives() == 2) {
+			sword1.setVisible(false);
+			sword2.setVisible(true);
+			sword3.setVisible(true);
+
+		}
+
+		else if (model.getLives() == 1) {
+			sword1.setVisible(false);
+			sword2.setVisible(false);
+			sword3.setVisible(true);
+
+		} else {
+			sword1.setVisible(false);
+			sword2.setVisible(false);
+			sword3.setVisible(false);
+
+		}
+
+	}
+
 	public void moveNode() {
 		ani.moveFruit(fruit1, ThreadLocalRandom.current().nextInt(5000, 10000),
 				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
@@ -241,7 +282,7 @@ public class GameEngine implements GameActions, Initializable {
 				ThreadLocalRandom.current().nextInt(3000, 5000));
 		ani.moveSuper(superFruit2, ThreadLocalRandom.current().nextInt(10000, 20000),
 				ThreadLocalRandom.current().nextInt(3000, 5000));
-		
+
 	}
 
 	@Override
@@ -264,7 +305,9 @@ public class GameEngine implements GameActions, Initializable {
 		pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
 			pane.startFullDrag();
 		});
-		sliceObjects();
+		sword1.setVisible(false);
+		sword2.setVisible(false);
+		sword3.setVisible(false);
 	}
-	
+
 }
