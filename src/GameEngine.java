@@ -47,12 +47,12 @@ public class GameEngine implements GameActions, Initializable {
 	@FXML
 	private HBox livesBox;
 
-	AudioClip slice=new AudioClip(this.getClass().getResource("slicing.wav").toString());
-	AudioClip gameover=new AudioClip(this.getClass().getResource("gameover.wav").toString());
-	AudioClip bomb=new AudioClip(this.getClass().getResource("bomb.wav").toString());
+	AudioClip slice = new AudioClip(this.getClass().getResource("slicing.wav").toString());
+	AudioClip gameover = new AudioClip(this.getClass().getResource("gameover.wav").toString());
+	AudioClip bomb = new AudioClip(this.getClass().getResource("bomb.wav").toString());
 	
-	
-	
+	//--------------------------------------------------------------------------------------------------------------------------------
+
 //    private GameEngine(){
 //
 //    }
@@ -75,7 +75,7 @@ public class GameEngine implements GameActions, Initializable {
 		model.addBomb(factory.createBomb("F"));
 		model.addSpecialFruit(factory.createSpecialFruit("S1"));
 		model.addSpecialFruit(factory.createSpecialFruit("S2"));
-		ani= new AnimationGUI();
+		ani = new AnimationGUI();
 		moveNode();
 	}
 
@@ -141,7 +141,7 @@ public class GameEngine implements GameActions, Initializable {
 				fruit1.setVisible(false);
 				fruit1.setDisable(true);
 				slice.play();
-				
+
 				// fruit1.slice(true);
 			}
 		});
@@ -204,22 +204,21 @@ public class GameEngine implements GameActions, Initializable {
 		bomb1.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb1.setVisible(false);
-                bomb.play();
+				bomb.play();
 				bomb1.setDisable(true);
 			}
 		});
 		bomb2.setOnMouseDragEntered(mouseEvent -> {
 			if (mouseEvent.isPrimaryButtonDown()) {
 				bomb2.setVisible(false);
-                gameover.play();
+				gameover.play();
 				bomb2.setDisable(true);
 				// fruit1.slice(true);
 			}
 		});
 
-	
 	}
-	
+
 	public void moveNode() {
 		ani.moveFruit(fruit1, ThreadLocalRandom.current().nextInt(5000, 10000),
 				ThreadLocalRandom.current().nextInt(4000, 6000), 350, 500);
@@ -241,7 +240,7 @@ public class GameEngine implements GameActions, Initializable {
 				ThreadLocalRandom.current().nextInt(3000, 5000));
 		ani.moveSuper(superFruit2, ThreadLocalRandom.current().nextInt(10000, 20000),
 				ThreadLocalRandom.current().nextInt(3000, 5000));
-		
+
 	}
 
 	@Override
@@ -266,5 +265,5 @@ public class GameEngine implements GameActions, Initializable {
 		});
 		sliceObjects();
 	}
-	
+
 }
