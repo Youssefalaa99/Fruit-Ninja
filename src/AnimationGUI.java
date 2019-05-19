@@ -8,80 +8,67 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
+import java.sql.Time;
 import java.util.Random;
 
 public class AnimationGUI {
 
 	private PathTransition pathTrans;
-	private GameObjectFactory factory = GameObjectFactory.getInstance();
+	private GameObjectFactory factory=GameObjectFactory.getInstance();
+	private Timeline timelineFruit;
+	private Timeline timelineBomb;
+	private Timeline timelineSpecialFruit;
 
-	public void moveFruit(ImageView fruit, int delay, int cycle, int x1, int x2) {
-		Timeline timeline = new Timeline();
+	public AnimationGUI(){
+		timelineFruit = new Timeline();
+		timelineBomb = new Timeline();
+		timelineSpecialFruit = new Timeline();
+	}
 
-		timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay + cycle),
-				randomFruitPath(fruit, delay, cycle, x1, x2), new KeyValue(fruit.rotateProperty(), 360)));
+
+	public void moveFruit(ImageView fruit,GameObject object, int delay, int cycle, int x1, int x2) {
+//		Timeline timeline = new Timeline();
+
+		timelineFruit.getKeyFrames()
+				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle, x1, x2), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
+		timelineFruit.setCycleCount(Timeline.INDEFINITE);
+		timelineFruit.play();
 
 	}
 
-	public void moveBomb(ImageView Bomb, int delay, int cycle, int x1, int x2) {
-		Timeline timeline = new Timeline();
-		timeline.getKeyFrames()
-				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(Bomb, delay, cycle, x1, x2)));
+	public void moveBomb(ImageView Bomb,GameObject object, int delay, int cycle, int x1, int x2) {
+//		Timeline timeline = new Timeline();
+		timelineBomb.getKeyFrames()
+				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(Bomb,object, delay, cycle, x1, x2)));
 //		timeline.setDelay(Duration.millis(randomNum));
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
+		timelineBomb.setCycleCount(Timeline.INDEFINITE);
+		timelineBomb.play();
 
 	}
 
-	public void moveSuper(ImageView fruit, int delay, int cycle) {
+	public void moveSuper(ImageView fruit,GameObject object, int delay, int cycle) {
 
-		Timeline t = new Timeline();
+//		Timeline t = new Timeline();
 
-		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle),
-				new KeyValue(fruit.rotateProperty(), 360)));
-		t.setCycleCount(1000);
-		t.play();
+		timelineSpecialFruit.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+		timelineSpecialFruit.setCycleCount(1000);
+		timelineSpecialFruit.play();
 
 	}
 
-	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit, int delay, int cycle, int x1, int x2) {
+	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, int delay, int cycle, int x1, int x2) {
 
 		EventHandler<ActionEvent> event = e -> {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			// To be removed
-			GameObject object = null;
-			Random random = new Random();
-			int rand = random.nextInt(4);
-			if (rand == 0) {
-				object = factory.createFruit("B");
-			} else if (rand == 1) {
-				object = factory.createFruit("R");
-			} else if (rand == 2) {
-				object = factory.createFruit("P");
-			} else if (rand == 3) {
-				object = factory.createFruit("W");
-			}
-			try {
+
 				fruit.setImage(object.getImage()[0]);
-				System.out.println("no Error2");
-			} catch (Exception e2) {
-				System.out.println("Fuck1");
-				fruit.setImage(new Image("peach.png"));
-			}
-			try {
-				path = object.getPath();
-				System.out.println("no Error1");
 
-			} catch (Exception e1) {
+			path =	 object.getPath();
 
-				System.out.println("Fuck2" + e1);
-				path = object.getPath();
-			}
+
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
@@ -92,40 +79,21 @@ public class AnimationGUI {
 
 	}
 
-	public EventHandler<ActionEvent> randomBombPath(ImageView fruit, int delay, int cycle, int x1, int x2) {
+	public EventHandler<ActionEvent> randomBombPath(ImageView fruit,GameObject object, int delay, int cycle, int x1, int x2) {
 
 		EventHandler<ActionEvent> event = e -> {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			// To be removed
-			GameObject object = null;
-			Random random = new Random();
-			int rand = random.nextInt(3);
-			if (rand == 0) {
-				object = factory.createBomb("D");
-			} else if (rand == 1) {
-				object = factory.createBomb("D");
-			} else if (rand == 2) {
-				object = factory.createBomb("F");
-			}
 
-			try {
+
+
 				fruit.setImage(object.getImage()[0]);
-				System.out.println("no Error2");
-			} catch (Exception e2) {
-				System.out.println("Fuck1");
-				fruit.setImage(new Image("peach.png"));
-			}
-			try {
-				path = object.getPath();
-				System.out.println("no Error1");
 
-			} catch (Exception e1) {
 
-				System.out.println("Fuck2" + e1);
-				path = object.getPath();
-			}
+
+				path =	 object.getPath();
+
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
@@ -155,22 +123,11 @@ public class AnimationGUI {
 //
 //	}
 
-	public EventHandler<ActionEvent> randomSuperPath(ImageView fruit, int delay, int cycle) {
+	public EventHandler<ActionEvent> randomSuperPath(ImageView fruit,GameObject object, int delay, int cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			// To be removed
-			GameObject object = null;
-			Random random = new Random();
-			int rand = random.nextInt(3);
-			if (rand == 0) {
-				object = factory.createSpecialFruit("S1");
-			} else if (rand == 1) {
-				object = factory.createSpecialFruit("S1");
-			} else if (rand == 2) {
-				object = factory.createSpecialFruit("S2");
-			}
 
 			fruit.setImage(object.getImage()[0]);
 			Path path = object.getPath();
@@ -182,5 +139,11 @@ public class AnimationGUI {
 
 		return event;
 
+	}
+
+	public void stopTimeline(){
+		timelineFruit.stop();
+		timelineBomb.stop();
+		timelineSpecialFruit.stop();
 	}
 }

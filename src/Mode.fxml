@@ -16,12 +16,12 @@
 		</ImageView>
 		<HBox alignment="CENTER" layoutX="142.0" layoutY="-189.0" prefHeight="164.0" prefWidth="515.0" spacing="200.0">
 			<children>
-				<ImageView fx:id="superFruit1" fitHeight="139.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fx:id="superFruit5" fitHeight="139.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@peach.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="superFruit2" fitHeight="141.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
+				<ImageView fx:id="superFruit10" fitHeight="141.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
 					<image>
 						<Image url="@peach.png" />
 					</image>
@@ -67,7 +67,7 @@
 						<Image url="@banana.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="bomb1" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fx:id="dangerousBomb" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@bomb.png" />
 					</image>
@@ -82,7 +82,7 @@
 						<Image url="@raspberry.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="bomb2" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fx:id="fatalBomb" fitHeight="80.0" fitWidth="80.0" layoutX="375.0" layoutY="740.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@bomb.png" />
 					</image>

@@ -3,143 +3,193 @@ import java.util.List;
 import java.util.Random;
 
 public class Model {
-	private int lives;
-	private int currentScore;
-	private int highScore;
-	private Level level;
-	private List<GameObject> fruits;
-	private List<GameObject> bombs;
-	private List<GameObject> specialFruits;
-	private XmlFile file;
+    private int lives;
+    private int currentScore;
+    private int highScore;
+    private Level level;
+    private List<GameObject> fruits;
+    private List<GameObject> bombs;
+    private List<GameObject> specialFruits;
+    private XmlFile file;
 
-	public Model(Level level) {
-		lives = 3;
-		currentScore = 0;
-		file = new XmlFile();
-		setHighScore(file.getHighScore());
-		setLevel(level);
-		fruits = new ArrayList<>();
-		bombs = new ArrayList<>();
-		specialFruits = new ArrayList<>();
-	}
 
-	public void addFruit(GameObject fruit) {
-		fruits.add(fruit);
-	}
+    public Model(Level level){
+        lives = 3 ;
+        currentScore = 0;
+        file = new XmlFile();
+        setHighScore(file.getHighScore());
+        setLevel(level);
+        fruits = new ArrayList<>();
+        bombs = new ArrayList<>();
+        specialFruits = new ArrayList<>();
+        GameObjectFactory factory = GameObjectFactory.getInstance();
+        addFruit(factory.createFruit("B"));
+        addFruit(factory.createFruit("R"));
+        addFruit(factory.createFruit("P"));
+        addFruit(factory.createFruit("W"));
+        addFruit(factory.createFruit("W"));
+        addFruit(factory.createFruit("P"));
+        addBomb(factory.createBomb("D"));
+        addBomb(factory.createBomb("F"));
+        addSpecialFruit(factory.createSpecialFruit("S1"));
+        addSpecialFruit(factory.createSpecialFruit("S2"));
+    }
 
-	public void removeFruit(GameObject fruit) {
-		fruits.remove(fruit);
-	}
+    public void addScore(int score){
+        currentScore+=score;
+        if(currentScore > highScore) {
+            highScore = currentScore;
+            file.saveGame(highScore);
+            System.out.println(file.getHighScore() + "-------------------------");
+        }
+    }
 
-	public void clearFruits() {
-		fruits.clear();
-	}
+    public GameObject getFruits(int i) {
+        return fruits.get(i);
+    }
 
-	public void addBomb(GameObject bomb) {
+    public GameObject getBombs(int i) {
+        return bombs.get(i);
+    }
 
-	}
+    public GameObject getSpecialFruits(int i) {
+        return specialFruits.get(i);
+    }
 
-	public void removeBomb(GameObject bomb) {
-		bombs.remove(bomb);
-	}
+    public void addFruit(GameObject fruit){
+        fruits.add(fruit);
+    }
 
-	public void clearBombs() {
-		bombs.clear();
-	}
+    public void removeFruit(GameObject fruit){
+        fruits.remove(fruit);
+    }
 
-	public void addSpecialFruit(GameObject fruit) {
-		specialFruits.add(fruit);
-	}
+    public void clearFruits(){
+        fruits.clear();
+    }
 
-	public void removeSpecialFruit(GameObject fruit) {
-		specialFruits.remove(fruit);
-	}
+    public void addBomb(GameObject bomb){
+        bombs.add(bomb);
+    }
 
-	public void clearSpecialFruits() {
-		specialFruits.clear();
-	}
+    public void removeBomb(GameObject bomb){
+        bombs.remove(bomb);
+    }
 
-	public void setLevel(Level level) {
-		this.level = level;
-	}
+    public void clearBombs(){
+        bombs.clear();
+    }
 
-	public int getLives() {
-		return lives;
-	}
+    public void addSpecialFruit(GameObject fruit){
+        specialFruits.add(fruit);
+    }
 
-	public int getCurrentScore() {
-		return currentScore;
-	}
+    public void removeSpecialFruit(GameObject fruit){
+        specialFruits.remove(fruit);
+    }
 
-	public void setCurrentScore(int currentScore) {
-		this.currentScore = currentScore;
-	}
+    public void clearSpecialFruits(){
+        specialFruits.clear();
+    }
 
-	public int getHighScore() {
-		return highScore;
-	}
+    public void setLevel(Level level) {
+        this.level = level;
+    }
 
-	public void setHighScore(int highScore) {
-		this.highScore = highScore;
-	}
+    public int getLives() {
+        return lives;
+    }
 
-	public Level getLevel() {
-		return level;
-	}
+   
 
-	public void removeLife() {
-		lives--;
+    public int getCurrentScore() {
+        return currentScore;
+    }
 
-		if (lives == 0) {
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
+    }
 
-		}
-	}
+    public int getHighScore() {
+        return highScore;
+    }
 
-	// To be modified: get objects from arrayList
-	public GameObject getRandomFruit() {
-		GameObjectFactory factory = GameObjectFactory.getInstance();
-		GameObject object = null;
-		Random random = new Random();
-		int rand = random.nextInt(4);
-		if (rand == 0) {
-			object = factory.createFruit("B");
-		} else if (rand == 1) {
-			object = factory.createFruit("R");
-		} else if (rand == 2) {
-			object = factory.createFruit("P");
-		} else if (rand == 3) {
-			object = factory.createFruit("W");
-		}
-		return object;
-	}
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+    }
 
-	public GameObject getRandomBomb() {
-		GameObjectFactory factory = GameObjectFactory.getInstance();
-		GameObject object = null;
-		Random random = new Random();
-		int rand = random.nextInt(3);
-		if (rand == 0) {
-			object = factory.createBomb("D");
-		} else if (rand == 1) {
-			object = factory.createBomb("D");
-		} else if (rand == 2) {
-			object = factory.createBomb("F");
-		}
-		return object;
-	}
+    public Level getLevel() {
+        return level;
+    }
+    
+    public int removeLife() {
+    	int flag=0;
+        lives--;
+    	if(lives==0) {
+    		endGame();
+    		flag=1;
+    	}
+    	return flag;
+    }
 
-	public GameObject getRandomSpecialFruit() {
-		GameObjectFactory factory = GameObjectFactory.getInstance();
-		GameObject object = null;
-		Random random = new Random();
-		int rand = random.nextInt(3);
-		if (rand == 0) {
-			object = factory.createSpecialFruit("S1");
-		} else if (rand == 1) {
-			object = factory.createSpecialFruit("S1");
-		} else if (rand == 2) {
-			object = factory.createSpecialFruit("S2");
-		}
-		return object;
-	}
+    public void endGame(){
+        lives=0;
+        System.out.println("Game Over!!!");
+    }
+
+
+    //To be modified: get objects from arrayList
+    public GameObject getRandomFruit(){
+        GameObjectFactory factory = GameObjectFactory.getInstance();
+        GameObject object = null;
+        Random random = new Random();
+        int rand = random.nextInt(4);
+        if(rand == 0){
+            object = factory.createFruit("B");
+        }
+        else if(rand == 1){
+            object = factory.createFruit("R");
+        }
+        else if(rand == 2){
+            object = factory.createFruit("P");
+        }
+        else if(rand == 3){
+            object = factory.createFruit("W");
+        }
+        return object;
+    }
+
+    public GameObject getRandomBomb(){
+        GameObjectFactory factory = GameObjectFactory.getInstance();
+        GameObject object = null;
+        Random random = new Random();
+        int rand = random.nextInt(3);
+        if(rand == 0){
+            object = factory.createBomb("D");
+        }
+        else if(rand == 1){
+            object = factory.createBomb("D");
+        }
+        else if(rand == 2){
+            object = factory.createBomb("F");
+        }
+        return object;
+    }
+
+    public GameObject getRandomSpecialFruit(){
+        GameObjectFactory factory = GameObjectFactory.getInstance();
+        GameObject object = null;
+        Random random = new Random();
+        int rand = random.nextInt(3);
+        if(rand == 0){
+            object = factory.createSpecialFruit("S1");
+        }
+        else if(rand == 1){
+            object = factory.createSpecialFruit("S1");
+        }
+        else if(rand == 2){
+            object = factory.createSpecialFruit("S2");
+        }
+        return object;
+    }
 }
