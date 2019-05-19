@@ -3,16 +3,13 @@ import javafx.scene.shape.Path;
 
 public class SpecialFruitTwo extends FruitDecorator {
 
+	public SpecialFruitTwo(Fruit fruit) {
+		super(fruit);
+	}
 
-    public SpecialFruitTwo(Fruit fruit){
-        super(fruit);
-    }
+	@Override
+	public int getSliceScore() {
 
-
-
-    @Override
-    public int getSliceScore() {
-    	
-        return fruit.getSliceScore()+9;
-    }
+		return fruit.getSliceScore() + 9;
+	}
 }
