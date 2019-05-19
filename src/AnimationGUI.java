@@ -13,14 +13,13 @@ import java.util.Random;
 public class AnimationGUI {
 
 	private PathTransition pathTrans;
-	private GameObjectFactory factory=GameObjectFactory.getInstance();
-
+	private GameObjectFactory factory = GameObjectFactory.getInstance();
 
 	public void moveFruit(ImageView fruit, int delay, int cycle, int x1, int x2) {
 		Timeline timeline = new Timeline();
 
-		timeline.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit, delay, cycle, x1, x2), new KeyValue(fruit.rotateProperty(), 360)));
+		timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay + cycle),
+				randomFruitPath(fruit, delay, cycle, x1, x2), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
@@ -41,7 +40,8 @@ public class AnimationGUI {
 
 		Timeline t = new Timeline();
 
-		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+		t.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit, delay, cycle),
+				new KeyValue(fruit.rotateProperty(), 360)));
 		t.setCycleCount(1000);
 		t.play();
 
@@ -53,20 +53,17 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			//To be removed
+			// To be removed
 			GameObject object = null;
 			Random random = new Random();
 			int rand = random.nextInt(4);
-			if(rand == 0){
+			if (rand == 0) {
 				object = factory.createFruit("B");
-			}
-			else if(rand == 1){
+			} else if (rand == 1) {
 				object = factory.createFruit("R");
-			}
-			else if(rand == 2){
+			} else if (rand == 2) {
 				object = factory.createFruit("P");
-			}
-			else if(rand == 3){
+			} else if (rand == 3) {
 				object = factory.createFruit("W");
 			}
 			try {
@@ -77,14 +74,13 @@ public class AnimationGUI {
 				fruit.setImage(new Image("peach.png"));
 			}
 			try {
-			path =	 object.getPath();
-			System.out.println("no Error1");
+				path = object.getPath();
+				System.out.println("no Error1");
 
-			}
-			catch (Exception e1) {
+			} catch (Exception e1) {
 
 				System.out.println("Fuck2" + e1);
-				 path = object.getPath();
+				path = object.getPath();
 			}
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
@@ -102,17 +98,15 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			//To be removed
+			// To be removed
 			GameObject object = null;
 			Random random = new Random();
 			int rand = random.nextInt(3);
-			if(rand == 0){
+			if (rand == 0) {
 				object = factory.createBomb("D");
-			}
-			else if(rand == 1){
+			} else if (rand == 1) {
 				object = factory.createBomb("D");
-			}
-			else if(rand == 2){
+			} else if (rand == 2) {
 				object = factory.createBomb("F");
 			}
 
@@ -124,11 +118,10 @@ public class AnimationGUI {
 				fruit.setImage(new Image("peach.png"));
 			}
 			try {
-				path =	 object.getPath();
+				path = object.getPath();
 				System.out.println("no Error1");
 
-			}
-			catch (Exception e1) {
+			} catch (Exception e1) {
 
 				System.out.println("Fuck2" + e1);
 				path = object.getPath();
@@ -167,17 +160,15 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-			//To be removed
+			// To be removed
 			GameObject object = null;
 			Random random = new Random();
 			int rand = random.nextInt(3);
-			if(rand == 0){
+			if (rand == 0) {
 				object = factory.createSpecialFruit("S1");
-			}
-			else if(rand == 1){
+			} else if (rand == 1) {
 				object = factory.createSpecialFruit("S1");
-			}
-			else if(rand == 2){
+			} else if (rand == 2) {
 				object = factory.createSpecialFruit("S2");
 			}
 
