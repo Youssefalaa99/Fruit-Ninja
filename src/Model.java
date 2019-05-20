@@ -39,7 +39,7 @@ public class Model {
         currentScore+=score;
         if(currentScore > highScore) {
             highScore = currentScore;
-            file.saveGame(highScore);
+            file.saveHighScore(highScore);
             System.out.println(file.getHighScore() + "-------------------------");
         }
     }
@@ -191,5 +191,37 @@ public class Model {
             object = factory.createSpecialFruit("S2");
         }
         return object;
+    }
+
+    public void setLives(int lives){
+        this.lives=lives;
+    }
+
+    public void save() {
+        file.saveGame(this);
+    }
+
+    public void load() {
+        Model loadedModel = file.loadGame();
+        this.setLevel(loadedModel.getLevel());
+        this.setCurrentScore(loadedModel.getCurrentScore());
+        this.setHighScore(loadedModel.getHighScore());
+        this.setLives(loadedModel.getLives());
+        fruits = new ArrayList<>();
+        bombs = new ArrayList<>();
+        specialFruits = new ArrayList<>();
+        GameObjectFactory factory = GameObjectFactory.getInstance();
+        addFruit(factory.createFruit("B"));
+        addFruit(factory.createFruit("R"));
+        addFruit(factory.createFruit("P"));
+        addFruit(factory.createFruit("W"));
+        addFruit(factory.createFruit("W"));
+        addFruit(factory.createFruit("P"));
+        addBomb(factory.createBomb("D"));
+        addBomb(factory.createBomb("F"));
+        addSpecialFruit(factory.createSpecialFruit("S1"));
+        addSpecialFruit(factory.createSpecialFruit("S2"));
+
+
     }
 }
