@@ -92,4 +92,9 @@ public abstract class FruitDecorator implements GameObject { // when initialized
 		return fruit.getPath();
 	}
 
+	@Override
+	public void setIsSliced(Boolean x) {
+		fruit.setIsSliced(x);
+	}
+
 }

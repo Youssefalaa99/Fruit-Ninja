@@ -64,12 +64,9 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-
-				fruit.setImage(object.getImage()[0]);
-
+            object.setIsSliced(false);
+            fruit.setImage(object.getImage()[0]);
 			path =	 (GameObjectFactory.getInstance()).rdmPath();
-
-
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
@@ -123,7 +120,7 @@ public class AnimationGUI {
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-
+            object.setIsSliced(false);
 			fruit.setImage(object.getImage()[0]);
 			Path path = (GameObjectFactory.getInstance()).rdmLine();
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);

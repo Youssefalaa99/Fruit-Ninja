@@ -112,4 +112,8 @@ public class Fruit implements GameObject {
 		return rdmpath;
 	}
 
+	@Override
+	public void setIsSliced(Boolean x) {
+		isSliced=x;
+	}
 }

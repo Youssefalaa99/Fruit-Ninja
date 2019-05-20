@@ -83,4 +83,9 @@ public abstract class Bombs implements GameObject {
 		return rdmPath;
 	}
 
+	@Override
+	public void setIsSliced(Boolean x) {
+		isSliced=x;
+	}
+
 }

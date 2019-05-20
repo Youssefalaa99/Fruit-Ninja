@@ -66,4 +66,6 @@ public interface GameObject {
 
 	public int getSliceScore();
 
+	public void setIsSliced(Boolean x);
+
 }
