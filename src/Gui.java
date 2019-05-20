@@ -13,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,13 +46,13 @@ public class Gui implements Initializable {
     @FXML private ImageView background;
     @FXML private Button save;
     @FXML private Label timerLabel;
-    
+
     private AudioClip gameover = new AudioClip(this.getClass().getResource("gameover.wav").toString());
     private AudioClip bomb = new AudioClip(this.getClass().getResource("bomb.wav").toString());
     private AudioClip slice = new AudioClip(this.getClass().getResource("slicing.wav").toString());
     Timer timer = new Timer();
 
-    public Gui(){ ani= new AnimationGUI(); }
+    public Gui(){ ani= new AnimationGUI(this); }
 private GameEngine engine;
 
     public void sliceObjects(Model model){
@@ -135,9 +134,9 @@ private GameEngine engine;
 
         superFruit5.setOnMouseDragEntered(mouseEvent -> {
             if (mouseEvent.isPrimaryButtonDown()) {
-                superFruit5.setVisible(false);
-                slice.play();
+                superFruit5.setImage(model.getFruits(0).getImage()[1]);
                 superFruit5.setDisable(true);
+                slice.play();
                 model.addScore(model.getSpecialFruits(0).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model);
@@ -146,9 +145,9 @@ private GameEngine engine;
         });
         superFruit10.setOnMouseDragEntered(mouseEvent -> {
             if (mouseEvent.isPrimaryButtonDown()) {
-                superFruit10.setVisible(false);
-                slice.play();
+                superFruit10.setImage(model.getFruits(1).getImage()[1]);
                 superFruit10.setDisable(true);
+                slice.play();
                 model.addScore(model.getSpecialFruits(1).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model);
@@ -210,6 +209,7 @@ private GameEngine engine;
         stage2.setScene(scene);
         stage2.show();
     }
+
         public void render(Model model) {
             score.setText(Integer.toString(model.getCurrentScore()));
             highscore.setText(Integer.toString(model.getHighScore()));
@@ -269,31 +269,34 @@ private GameEngine engine;
         ani.moveSuper(superFruit10,model.getSpecialFruits(1), ThreadLocalRandom.current().nextInt(10000, 20000),
                 ThreadLocalRandom.current().nextInt(3000, 5000));
     }
-   
+
     public void startTimer() {
-    	
+
           timer.scheduleAtFixedRate(new TimerTask() {
     	    	  int interval=1;
     	        public void run() {
-    	          
+
 					if(interval > 0)
     	            {
     	            	Platform.setImplicitExit(false);
     	                Platform.runLater(() -> timerLabel.setText(":"+Integer.toString(interval)));
     	                 interval++;
     	            }
-    	       
+
     	        }
     	    }, 1000,1000);
     	}
-    	
-   
-    
-    
-    public void save() {
-    	engine.saveGame();
+
+
+
+
+    public void save(Model model) {
+        Invoker invoker = new Invoker();
+        SaveGame saveGame = new SaveGame(model);
+        invoker.setCommand(saveGame);
+        invoker.executeCommand();
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
@@ -301,10 +304,10 @@ private GameEngine engine;
         });
         GameOverWdw.setVisible(false);
         GameOverWdw.setDisable(true);
-        
-        startTimer();    
+
+        startTimer();
     }
-    
+
 
     
     

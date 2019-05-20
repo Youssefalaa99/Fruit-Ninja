@@ -115,7 +115,7 @@ public class XmlFile {
     }
 
     public Model loadGame(){
-        Model model =null;
+        Model model =new Model();
         try{
             
 
@@ -155,11 +155,10 @@ public class XmlFile {
             
             e.printStackTrace();
         }
-        
 
 
-
-
+        System.out.println(model.getCurrentScore());
+        System.out.println(model.getLives());
         return model;
     }
 }

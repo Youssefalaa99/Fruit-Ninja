@@ -9,6 +9,8 @@ import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class AnimationGUI {
@@ -18,19 +20,21 @@ public class AnimationGUI {
 	private Timeline timelineFruit;
 	private Timeline timelineBomb;
 	private Timeline timelineSpecialFruit;
+	private Gui gui;
 
-	public AnimationGUI(){
+	public AnimationGUI(Gui gui){
 		timelineFruit = new Timeline();
 		timelineBomb = new Timeline();
 		timelineSpecialFruit = new Timeline();
+		this.gui = gui;
 	}
 
 
-	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle) {
+	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle/*,Model model,ArrayList<GameObject> objects*/) {
 //		Timeline timeline = new Timeline();
 
 		timelineFruit.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle/*,model,objects*/), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineFruit.setCycleCount(Timeline.INDEFINITE);
 		timelineFruit.play();
@@ -58,9 +62,10 @@ public class AnimationGUI {
 
 	}
 
-	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, double delay, double cycle) {
+	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, double delay, double cycle/*,Model model,ArrayList<GameObject> objects*/) {
 
 		EventHandler<ActionEvent> event = e -> {
+//			check(model,objects);
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
@@ -70,7 +75,7 @@ public class AnimationGUI {
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
-
+//			objects.add(object);
 		};
 
 		return event;
@@ -132,6 +137,28 @@ System.out.println("bomb");
 		return event;
 
 	}
+
+	/*public void check(Model model,ArrayList<GameObject> objects){
+		Iterator<GameObject> iterator = objects.iterator();
+		if(objects.isEmpty()==false){
+			while (iterator.hasNext()){
+				GameObject object = iterator.next();
+				if(object.isSliced()==false){
+					int x = model.removeLife();
+					if(x==1){
+						stopTimeline();
+					}
+					gui.render(model);
+					iterator.remove();
+					System.out.println("-------Remove life fruit not sliced!!!!!!! ");
+				}
+				else if(object.isSliced()){
+					objects.remove(object);
+				}
+			}
+		}
+	}*/
+
 
 	public void stopTimeline(){
 		timelineFruit.stop();

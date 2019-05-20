@@ -24,7 +24,8 @@ public class GameEngine implements GameActions {
     }
 
     public void newGame(Level level) {
-        this.model = new Model(level);
+        this.model = new Model();
+        model.setLevel(level);
 //		view = new Gui();
 //		ani= new AnimationGUI();
         view.render(model);
@@ -46,7 +47,7 @@ public class GameEngine implements GameActions {
 
     @Override
     public void sliceObjects() {
-        view.sliceObjects(model);
+
 
     }
 
@@ -57,11 +58,12 @@ public class GameEngine implements GameActions {
         SaveGame saveGame = new SaveGame(model);
         invoker.setCommand(saveGame);
         invoker.executeCommand();
-        
+
     }
 
     @Override
     public void loadGame() {
+        model = new Model();
         Invoker invoker = new Invoker();
         LoadGame loadGame = new LoadGame(model);
         invoker.setCommand(loadGame);

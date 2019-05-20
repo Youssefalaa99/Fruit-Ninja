@@ -20,17 +20,17 @@ public class ObjectImages {
 	public ObjectImages() {
 		try {
 			banana = new Image(new FileInputStream("banana.png"));
-//        bananaSliced=new Image(new FileInputStream(""));
+        bananaSliced=new Image(new FileInputStream("bananaS.png"));
 			peach = new Image(new FileInputStream("peach.png"));
-//        peachSliced=new Image(new FileInputStream(""));
+        peachSliced=new Image(new FileInputStream("peachS.png"));
 			watermelon = new Image(new FileInputStream("watermelon.png"));
-//        watermelonSliced=new Image(new FileInputStream(""));
+        watermelonSliced=new Image(new FileInputStream("watermelonS.png"));
 			raspberry = new Image(new FileInputStream("raspberry.png"));
-//        raspberrySliced=new Image(new FileInputStream(""));
+        raspberrySliced=new Image(new FileInputStream("raspberryS.png"));
 			specialFruit1 = new Image(new FileInputStream("special5.png"));
-//        specialFruit1Sliced=new Image(new FileInputStream(""));
+        specialFruit1Sliced=new Image(new FileInputStream("special5S.png"));
 			specialFruit2 = new Image(new FileInputStream("special10.png"));
-//        specialFruit2Sliced=new Image(new FileInputStream(""));
+        specialFruit2Sliced=new Image(new FileInputStream("special10S.png"));
 			fatalBomb = new Image(new FileInputStream("fatalBomb.png"));
 			dangerousBomb = new Image(new FileInputStream("bomb.png"));
 		} catch (Exception e) {

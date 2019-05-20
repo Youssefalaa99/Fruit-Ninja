@@ -13,12 +13,11 @@ public class Model {
     private XmlFile file;
 
 
-    public Model(Level level){
+    public Model(){
         lives = 3 ;
         currentScore = 0;
         file = new XmlFile();
         setHighScore(file.getHighScore());
-        setLevel(level);
         fruits = new ArrayList<>();
         bombs = new ArrayList<>();
         specialFruits = new ArrayList<>();
@@ -125,7 +124,7 @@ public class Model {
     public int removeLife() {
     	int flag=0;
         lives--;
-    	if(lives==0) {
+    	if(lives<=0) {
     		endGame();
     		flag=1;
     	}
