@@ -37,7 +37,7 @@ public class StartController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		//chooseLevel.getItems().addAll("Easy","Medium","Hard");
 	    start.setCycleCount(AudioClip.INDEFINITE);
-	    start.play();
+	    //start.play();
 		
 	}
 	

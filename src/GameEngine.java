@@ -1,9 +1,14 @@
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -11,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
 
 public class GameEngine implements GameActions, Initializable {
 	private static GameEngine instance = null;
@@ -52,6 +58,9 @@ public class GameEngine implements GameActions, Initializable {
 	private Label score;
 	@FXML
 	private Label highscore;
+	@FXML private AnchorPane GameOverWdw;
+	@FXML private Button okay;
+	@FXML private ImageView background;
 
 	AudioClip slice = new AudioClip(this.getClass().getResource("slicing.wav").toString());
 	AudioClip gameover = new AudioClip(this.getClass().getResource("gameover.wav").toString());
@@ -264,10 +273,19 @@ public class GameEngine implements GameActions, Initializable {
 				ani.stopTimeline();
 				render(model);
 				System.out.println("FatalBomb");
-				// fruit1.slice(true);
+				
 			}
 		});
 
+	}
+	
+	
+	public void check() {
+		
+		//if (fatalBomb.getY()>background.getY())
+			//System.out.println(fatalBomb.getY() + "+"+background.getY());
+			
+			
 	}
 
 	public void render(Model model) {
@@ -298,6 +316,9 @@ public class GameEngine implements GameActions, Initializable {
 			sword1.setVisible(false);
 			sword2.setVisible(false);
 			sword3.setVisible(false);
+			ani.stopTimeline();
+			GameOverWdw.setVisible(true);
+			GameOverWdw.setDisable(false);
 
 		}
 
@@ -324,8 +345,21 @@ public class GameEngine implements GameActions, Initializable {
 				ThreadLocalRandom.current().nextInt(3000, 5000));
 		ani.moveSuper(superFruit10,model.getSpecialFruits(1), ThreadLocalRandom.current().nextInt(10000, 20000),
 				ThreadLocalRandom.current().nextInt(3000, 5000));
-
+		
+	
 	}
+	
+	
+	
+	public void esc(ActionEvent event) throws IOException {
+
+		Stage stage2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("Start.fxml"));
+		Scene scene = new Scene(root, 700, 600);
+		stage2.setScene(scene);
+		stage2.show();
+	}
+	
 
 	@Override
 	public void saveGame() {
@@ -351,6 +385,9 @@ public class GameEngine implements GameActions, Initializable {
 		sword1.setVisible(false);
 		sword2.setVisible(false);
 		sword3.setVisible(false);
+		GameOverWdw.setVisible(false);
+		GameOverWdw.setDisable(true);
+		check();
 	}
 
 }
