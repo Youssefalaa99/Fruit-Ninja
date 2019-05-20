@@ -89,7 +89,7 @@ public class AnimationGUI {
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
-
+System.out.println("bomb");
 		};
 
 		return event;

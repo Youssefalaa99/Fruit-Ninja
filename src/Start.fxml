@@ -18,7 +18,7 @@
             <Image url="@Background.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="startBtn" layoutX="45.0" layoutY="203.0" mnemonicParsing="false" onAction="#startGame" prefHeight="64.0" prefWidth="76.0" style="-fx-background-image: watermelon.png; -fx-background-radius: 200;" text="Classic">
+      <Button fx:id="startBtn" layoutX="45.0" layoutY="177.0" mnemonicParsing="false" onAction="#startGame" prefHeight="64.0" prefWidth="76.0" style="-fx-background-image: watermelon.png; -fx-background-radius: 200;" text="Classic">
          <font>
             <Font name="Comic Sans MS Bold" size="16.0" />
          </font>
@@ -28,8 +28,8 @@
             <Font name="Comic Sans MS Bold" size="16.0" />
          </font>
       </Button>
-      <ComboBox layoutX="172.0" layoutY="216.0" prefHeight="38.0" prefWidth="150.0" promptText="-Choose difficulty-" />
-      <Button fx:id="arcade" layoutX="48.0" layoutY="302.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="70.0" style="-fx-background-radius: 200;" text="Arcade">
+      <ComboBox layoutX="172.0" layoutY="190.0" prefHeight="38.0" prefWidth="150.0" promptText="-Choose difficulty-" />
+      <Button fx:id="arcade" layoutX="48.0" layoutY="261.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="70.0" style="-fx-background-radius: 200;" text="Arcade">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
@@ -49,5 +49,10 @@
             <Font name="Comic Sans MS" size="21.0" />
          </font>
       </Text>
+      <Button fx:id="load" layoutX="35.0" layoutY="348.0" mnemonicParsing="false" onAction="#loadGame" prefHeight="64.0" prefWidth="97.0" style="-fx-background-radius: 200;" text="Load Game">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

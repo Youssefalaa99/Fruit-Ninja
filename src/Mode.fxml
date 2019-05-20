@@ -128,5 +128,10 @@
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="save" layoutX="457.0" layoutY="21.0" mnemonicParsing="false" onAction="#save" prefHeight="34.0" prefWidth="68.0" style="-fx-background-radius: 200;" text="Save" textFill="#456f26">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
 	</children>
 </AnchorPane>

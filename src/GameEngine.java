@@ -57,6 +57,7 @@ public class GameEngine implements GameActions {
         SaveGame saveGame = new SaveGame(model);
         invoker.setCommand(saveGame);
         invoker.executeCommand();
+        
     }
 
     @Override

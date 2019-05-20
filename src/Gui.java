@@ -20,55 +20,36 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class Gui implements Initializable {
-    @FXML
-    private ImageView sword1;
-    @FXML
-    private ImageView sword2;
-    @FXML
-    private ImageView sword3;
-    @FXML
-    private Button start;
+    @FXML private ImageView sword1;
+    @FXML private ImageView sword2;
+    @FXML private ImageView sword3;
+    @FXML private Button start;
     private AnimationGUI ani;
-    @FXML
-    private ImageView fruit1;
-    @FXML
-    private ImageView fruit2;
-    @FXML
-    private ImageView fruit3;
-    @FXML
-    private ImageView fruit4;
-    @FXML
-    private ImageView fruit5;
-    @FXML
-    private ImageView fruit6;
-    @FXML
-    private ImageView fatalBomb;
-    @FXML
-    private ImageView dangerousBomb;
-    @FXML
-    private AnchorPane pane;
-    @FXML
-    private ImageView superFruit5;
-    @FXML
-    private ImageView superFruit10;
-    @FXML
-    private HBox livesBox;
-    @FXML
-    private Label score;
-    @FXML
-    private Label highscore;
-    @FXML
-    private  AnchorPane GameOverWdw;
-    @FXML
-    private Button okay;
-    @FXML
-    private ImageView background;
+    @FXML private ImageView fruit1;
+    @FXML private ImageView fruit2;
+    @FXML private ImageView fruit3;
+    @FXML private ImageView fruit4;
+    @FXML private ImageView fruit5;
+    @FXML private ImageView fruit6;
+    @FXML private ImageView fatalBomb;
+    @FXML  private ImageView dangerousBomb;
+    @FXML private AnchorPane pane;
+    @FXML private ImageView superFruit5;
+    @FXML private ImageView superFruit10;
+    @FXML private HBox livesBox;
+    @FXML private Label score;
+    @FXML private Label highscore;
+    @FXML private  AnchorPane GameOverWdw;
+    @FXML private Button okay;
+    @FXML private ImageView background;
+    @FXML private Button save;
+    
     private AudioClip gameover = new AudioClip(this.getClass().getResource("gameover.wav").toString());
     private AudioClip bomb = new AudioClip(this.getClass().getResource("bomb.wav").toString());
     private AudioClip slice = new AudioClip(this.getClass().getResource("slicing.wav").toString());
 
     public Gui(){ ani= new AnimationGUI(); }
-
+private GameEngine engine;
 
     public void sliceObjects(Model model){
         fruit1.setOnMouseDragEntered(mouseEvent -> {
@@ -283,6 +264,12 @@ public class Gui implements Initializable {
                 ThreadLocalRandom.current().nextInt(3000, 5000));
     }
 
+    
+    
+    public void save() {
+    	engine.saveGame();
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
@@ -291,4 +278,11 @@ public class Gui implements Initializable {
         GameOverWdw.setVisible(false);
         GameOverWdw.setDisable(true);
     }
+    
+    
+    
+    
+    
+    
+    
 }

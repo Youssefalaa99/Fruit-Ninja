@@ -26,6 +26,9 @@ public class StartController implements Initializable {
 	@FXML private Button exitBtn;
 	@FXML private Button arcade;
 	@FXML public ListView<String> chooseLoad;
+	@FXML private Button load;
+	private GameEngine engine;
+	
 	private AudioClip start=new AudioClip(this.getClass().getResource("start.wav").toString());
 	
 
@@ -90,6 +93,9 @@ public class StartController implements Initializable {
 	
 	
 	public void loadGame(ActionEvent event) throws IOException {
+		
+		engine.loadGame();
+		
 	}
 
 	public void exitGame() {
