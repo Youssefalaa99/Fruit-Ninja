@@ -355,7 +355,7 @@ public class GameEngine implements GameActions, Initializable {
 
 		Stage stage2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("Start.fxml"));
-		Scene scene = new Scene(root, 700, 600);
+		Scene scene = new Scene(root);
 		stage2.setScene(scene);
 		stage2.show();
 	}
@@ -363,11 +363,19 @@ public class GameEngine implements GameActions, Initializable {
 
 	@Override
 	public void saveGame() {
-
+		Invoker invoker = new Invoker();
+		SaveGame saveGame = new SaveGame(model);
 	}
 
 	@Override
 	public void loadGame() {
+		Invoker invoker = new Invoker();
+		LoadGame loadGame = new LoadGame(model);
+		invoker.setCommand(loadGame);
+		invoker.executeCommand();
+		ani= new AnimationGUI();
+		render(model);
+		moveNode();
 
 	}
 

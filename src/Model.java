@@ -221,7 +221,5 @@ public class Model {
         addBomb(factory.createBomb("F"));
         addSpecialFruit(factory.createSpecialFruit("S1"));
         addSpecialFruit(factory.createSpecialFruit("S2"));
-
-
     }
 }

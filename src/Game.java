@@ -20,32 +20,7 @@ import java.io.File;
 public class Game extends Application {
 	public static void main(String[] args) {
 
-		try{
-
-
-
 		XmlFile f=new XmlFile();
-		File inputFile = new File("./src//HighScore.xml");
-		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		Document doc = docBuilder.parse(inputFile);
-		Node game = doc.getFirstChild();
-		Element savedGame = doc.createElement("SavedGame");
-		game.appendChild(savedGame);
-
-
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
-			System.out.println("-----------Modified File-----------");
-			StreamResult consoleResult = new StreamResult(inputFile);
-			transformer.transform(source, consoleResult);
-
-
-		}
-		catch(Exception e){
-
-		}
 		launch(args);
 
 	}
@@ -54,7 +29,7 @@ public class Game extends Application {
 		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource("Start.fxml"));
 		primaryStage.setTitle("Fruit Ninja");
 		primaryStage.setScene(new Scene(LoginUserGUI, 500, 500));
-//        primaryStage.setResizable(false);
+        primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 
