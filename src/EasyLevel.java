@@ -5,12 +5,8 @@ public class EasyLevel implements Level {
 	}
 
 	@Override
-	public double getNoOfBombs() {
-		return 1;
-	}
-
-	@Override
-	public double getNoOfFruits() {
+	public double getNoOfObjects() {
 		return 1;
 	}
 }
+

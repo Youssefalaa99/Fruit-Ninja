@@ -68,7 +68,7 @@ public class GameObjectFactory {
 		}
 	}
 
-	private Path rdmPath() {
+	public Path rdmPath() {
 		int rdmHeight = ThreadLocalRandom.current().nextInt(-800, -400);
 		Path path = new Path();
 		Random random = new Random();
@@ -90,7 +90,7 @@ public class GameObjectFactory {
 
 	}
 
-	private Path rdmLine() {
+	public Path rdmLine() {
 		Path path = new Path();
 		int rdmHeight = ThreadLocalRandom.current().nextInt(-275, 275);
 		path.getElements().add(new MoveTo(rdmHeight, 0));

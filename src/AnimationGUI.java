@@ -26,21 +26,21 @@ public class AnimationGUI {
 	}
 
 
-	public void moveFruit(ImageView fruit,GameObject object, int delay, int cycle, int x1, int x2) {
+	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle) {
 //		Timeline timeline = new Timeline();
 
 		timelineFruit.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle, x1, x2), new KeyValue(fruit.rotateProperty(), 360)));
+				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineFruit.setCycleCount(Timeline.INDEFINITE);
 		timelineFruit.play();
 
 	}
 
-	public void moveBomb(ImageView Bomb,GameObject object, int delay, int cycle, int x1, int x2) {
+	public void moveBomb(ImageView Bomb,GameObject object, double delay, double cycle) {
 //		Timeline timeline = new Timeline();
 		timelineBomb.getKeyFrames()
-				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(Bomb,object, delay, cycle, x1, x2)));
+				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(Bomb,object, delay, cycle)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineBomb.setCycleCount(Timeline.INDEFINITE);
 		timelineBomb.play();
@@ -48,7 +48,7 @@ public class AnimationGUI {
 
 	}
 
-	public void moveSuper(ImageView fruit,GameObject object, int delay, int cycle) {
+	public void moveSuper(ImageView fruit,GameObject object, double delay, double cycle) {
 
 //		Timeline t = new Timeline();
 
@@ -58,7 +58,7 @@ public class AnimationGUI {
 
 	}
 
-	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, int delay, int cycle, int x1, int x2) {
+	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
 			Path path;
@@ -67,7 +67,7 @@ public class AnimationGUI {
 
 				fruit.setImage(object.getImage()[0]);
 
-			path =	 object.getPath();
+			path =	 (GameObjectFactory.getInstance()).rdmPath();
 
 
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
@@ -80,14 +80,14 @@ public class AnimationGUI {
 
 	}
 
-	public EventHandler<ActionEvent> randomBombPath(ImageView fruit,GameObject object, int delay, int cycle, int x1, int x2) {
+	public EventHandler<ActionEvent> randomBombPath(ImageView fruit,GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
             fruit.setImage(object.getImage()[0]);
-            path =	 object.getPath();
+            path =	 (GameObjectFactory.getInstance()).rdmPath();
 
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
@@ -118,14 +118,14 @@ public class AnimationGUI {
 //
 //	}
 
-	public EventHandler<ActionEvent> randomSuperPath(ImageView fruit,GameObject object, int delay, int cycle) {
+	public EventHandler<ActionEvent> randomSuperPath(ImageView fruit,GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
 
 			fruit.setImage(object.getImage()[0]);
-			Path path = object.getPath();
+			Path path = (GameObjectFactory.getInstance()).rdmLine();
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();

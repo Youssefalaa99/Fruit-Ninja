@@ -13,14 +13,11 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-
 import java.io.File;
 
 public class Game extends Application {
-	public static void main(String[] args) {
 
-		XmlFile f=new XmlFile();
+	public static void main(String[] args) {
 		launch(args);
 
 	}
@@ -29,7 +26,7 @@ public class Game extends Application {
 		Parent LoginUserGUI = FXMLLoader.load(getClass().getResource("Start.fxml"));
 		primaryStage.setTitle("Fruit Ninja");
 		primaryStage.setScene(new Scene(LoginUserGUI, 500, 500));
-        primaryStage.setResizable(false);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 

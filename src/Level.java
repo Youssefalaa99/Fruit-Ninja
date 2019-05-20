@@ -1,7 +1,7 @@
 public interface Level {
 	public double getLevelSpeed();
 
-	public double getNoOfBombs();
+	public double getNoOfObjects();
 
-	public double getNoOfFruits();
+
 }

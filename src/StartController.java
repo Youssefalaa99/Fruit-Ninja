@@ -26,11 +26,7 @@ public class StartController implements Initializable {
 	@FXML private Button exitBtn;
 	@FXML private Button arcade;
 	@FXML public ListView<String> chooseLoad;
-	
-	
-	
-	
-	AudioClip start=new AudioClip(this.getClass().getResource("start.wav").toString());
+	private AudioClip start=new AudioClip(this.getClass().getResource("start.wav").toString());
 	
 
 	@Override
@@ -45,7 +41,6 @@ public class StartController implements Initializable {
 	public void startGame(ActionEvent event) throws IOException {
 
 		Level level = new EasyLevel();
-		
 		FXMLLoader loader = new FXMLLoader();
 		
 		loader.setLocation(getClass().getResource("Mode.fxml"));
@@ -56,9 +51,10 @@ public class StartController implements Initializable {
 
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+
+		Gui gui = loader.getController();
 		GameEngine engine = GameEngine.getInstance();
-		
-		engine = loader.getController();
+		engine.setGui(gui);
 		engine.newGame(level);
 		start.stop();
 		
