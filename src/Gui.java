@@ -290,11 +290,11 @@ private GameEngine engine;
 
 
 
-    public void save(Model model) {
-        Invoker invoker = new Invoker();
-        SaveGame saveGame = new SaveGame(model);
-        invoker.setCommand(saveGame);
-        invoker.executeCommand();
+    public void save() {
+//        Invoker invoker = new Invoker();
+//        SaveGame saveGame = new SaveGame(model);
+//        invoker.setCommand(saveGame);
+//        invoker.executeCommand();
     }
 
     @Override
