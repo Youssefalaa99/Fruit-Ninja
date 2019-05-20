@@ -44,6 +44,7 @@ public class AnimationGUI {
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineBomb.setCycleCount(Timeline.INDEFINITE);
 		timelineBomb.play();
+		System.out.println(timelineBomb.getCycleDuration());
 
 	}
 
@@ -85,14 +86,8 @@ public class AnimationGUI {
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
-
-
-
-				fruit.setImage(object.getImage()[0]);
-
-
-
-				path =	 object.getPath();
+            fruit.setImage(object.getImage()[0]);
+            path =	 object.getPath();
 
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
