@@ -60,7 +60,7 @@ public class StartController implements Initializable {
 		engine.setGui(gui);
 		engine.newGame(level);
 		start.stop();
-		
+
 		window.setScene(GameScene);
 
 		window.show();

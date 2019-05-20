@@ -134,7 +134,6 @@ public class Model {
 
     public void endGame(){
         lives=0;
-        System.out.println("Game Over!!!");
     }
 
 
