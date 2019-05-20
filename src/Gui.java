@@ -1,3 +1,4 @@
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -43,10 +46,12 @@ public class Gui implements Initializable {
     @FXML private Button okay;
     @FXML private ImageView background;
     @FXML private Button save;
+    @FXML private Label timerLabel;
     
     private AudioClip gameover = new AudioClip(this.getClass().getResource("gameover.wav").toString());
     private AudioClip bomb = new AudioClip(this.getClass().getResource("bomb.wav").toString());
     private AudioClip slice = new AudioClip(this.getClass().getResource("slicing.wav").toString());
+    Timer timer = new Timer();
 
     public Gui(){ ani= new AnimationGUI(); }
 private GameEngine engine;
@@ -234,6 +239,7 @@ private GameEngine engine;
 
                 GameOverWdw.setVisible(true);
                 GameOverWdw.setDisable(false);
+                timer.cancel();
             }
 
         }
@@ -263,7 +269,25 @@ private GameEngine engine;
         ani.moveSuper(superFruit10,model.getSpecialFruits(1), ThreadLocalRandom.current().nextInt(10000, 20000),
                 ThreadLocalRandom.current().nextInt(3000, 5000));
     }
-
+   
+    public void startTimer() {
+    	
+          timer.scheduleAtFixedRate(new TimerTask() {
+    	    	  int interval=1;
+    	        public void run() {
+    	          
+					if(interval > 0)
+    	            {
+    	            	Platform.setImplicitExit(false);
+    	                Platform.runLater(() -> timerLabel.setText(":"+Integer.toString(interval)));
+    	                 interval++;
+    	            }
+    	       
+    	        }
+    	    }, 1000,1000);
+    	}
+    	
+   
     
     
     public void save() {
@@ -277,11 +301,11 @@ private GameEngine engine;
         });
         GameOverWdw.setVisible(false);
         GameOverWdw.setDisable(true);
+        
+        startTimer();    
     }
     
-    
-    
-    
+
     
     
     
