@@ -82,9 +82,9 @@ public class XmlFile {
         Node savedGame = HighScore.getNextSibling();
         Game.removeChild(savedGame);
         Element SavedGame = doc.createElement("SavedGame");
-        Element lives = doc.createElement("Number of lives");
+        Element lives = doc.createElement("NumberOfLives");
         lives.setTextContent(Integer.toString(model.getLives()));
-        SavedGame.appendChild(savedGame);
+        SavedGame.appendChild(lives);
         Element score = doc.createElement("CurrentScore");
         score.setTextContent(Integer.toString(model.getCurrentScore()));
         SavedGame.appendChild(score);
