@@ -43,7 +43,6 @@ public class GameObjectFactory {
 //		int x = random.nextInt(3);
 		Fruit specialFruitOne = new Fruit(images.getSpecialFruit1Images(), rdmLine());
 		Fruit specialFruitTwo = new Fruit(images.getSpecialFruit2Images(), rdmLine());
-		// System.out.println(x);
 		switch (specialFruit) {
 		case "S1":
 			return new SpecialFruitOne(specialFruitOne);
