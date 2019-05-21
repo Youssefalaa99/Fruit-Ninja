@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 public class StartController implements Initializable {
 
-	@FXML ComboBox<String> chooseLevel;
+	@FXML ChoiceBox<String> chooseLevel;
 	@FXML private Button startBtn;
 	@FXML private Button loadBtn;
 	@FXML private Button exitBtn;
@@ -33,7 +33,8 @@ public class StartController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//chooseLevel.getItems().addAll("Easy","Medium","Hard");
+		chooseLevel.getItems().addAll("Easy","Medium","Hard");
+		chooseLevel.setValue("Easy");
 	    start.setCycleCount(AudioClip.INDEFINITE);
 	    //start.play();
 		
@@ -42,7 +43,7 @@ public class StartController implements Initializable {
 
 	public void startGame(ActionEvent event) throws IOException {
 
-		Level level = new EasyLevel();
+		Level level = setLevel(chooseLevel.getValue());
 		FXMLLoader loader = new FXMLLoader();
 		
 		loader.setLocation(getClass().getResource("Mode.fxml"));
@@ -64,7 +65,17 @@ public class StartController implements Initializable {
 
 	}
 
-	
+	public Level setLevel(String str){
+		switch (str) {
+			case "Easy":
+				return new EasyLevel();
+			case "Medium":
+				return new NormalLevel();
+			case "Hard":
+				return new HardLevel();
+		}
+		return null;
+	}
 	
 	public void startArcade(ActionEvent event) throws IOException {
 

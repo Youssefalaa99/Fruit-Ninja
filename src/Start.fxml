@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartController">
+<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartController">
    <children>
       <ImageView fitHeight="531.0" fitWidth="531.0" pickOnBounds="true">
          <image>
@@ -61,7 +61,7 @@
                   </StackPane>
                </graphic>
             </Button>
-            <ChoiceBox prefWidth="150.0">
+            <ChoiceBox fx:id="chooseLevel" prefWidth="150.0">
                <effect>
                   <InnerShadow choke="0.21" height="85.0" radius="25.75" width="20.0" />
                </effect>

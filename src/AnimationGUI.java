@@ -33,7 +33,7 @@ public class AnimationGUI {
 	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle) {
 
 		timelineFruit.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+				.add(new KeyFrame(Duration.millis(delay + cycle + 50), randomFruitPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineFruit.setCycleCount(Timeline.INDEFINITE);
 		timelineFruit.play();
@@ -47,7 +47,6 @@ public class AnimationGUI {
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineBomb.setCycleCount(Timeline.INDEFINITE);
 		timelineBomb.play();
-		System.out.println(timelineBomb.getCycleDuration());
 
 	}
 
@@ -68,13 +67,12 @@ public class AnimationGUI {
 			fruit.setVisible(true);
 			fruit.setDisable(false);
             object.setIsSliced(false);
-			System.out.println("Changed to not sliced");
             fruit.setImage(object.getImage()[0]);
 			path =	 (GameObjectFactory.getInstance()).rdmPath();
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
-			pathTrans.play();
 			pathTrans.setOnFinished(event1 -> check(object));
+			pathTrans.play();
 
 		};
 
@@ -122,7 +120,6 @@ public class AnimationGUI {
 
 
 	public void check(GameObject object){
-		System.out.println("Checking :" + object.isSliced());
 		if(object.isSliced()==false){
 			engine.removeLife();
 		}

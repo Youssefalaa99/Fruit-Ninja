@@ -43,7 +43,6 @@ public class GameObjectFactory {
 //		int x = random.nextInt(3);
 		Fruit specialFruitOne = new Fruit(images.getSpecialFruit1Images(), rdmLine());
 		Fruit specialFruitTwo = new Fruit(images.getSpecialFruit2Images(), rdmLine());
-		// System.out.println(x);
 		switch (specialFruit) {
 		case "S1":
 			return new SpecialFruitOne(specialFruitOne);
@@ -95,7 +94,6 @@ public class GameObjectFactory {
 		int rdmHeight = ThreadLocalRandom.current().nextInt(-275, 275);
 		path.getElements().add(new MoveTo(rdmHeight, 0));
 		path.getElements().add(new LineTo(0, 1000));
-		System.out.println(path);
 		return path;
 	}
 
