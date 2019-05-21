@@ -1,9 +1,7 @@
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,27 +11,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class StartController implements Initializable {
 
-	@FXML ComboBox<String> chooseLevel;
+	@FXML private ChoiceBox<String> chooseLevel;
 	@FXML private Button startBtn;
 	@FXML private Button loadBtn;
 	@FXML private Button exitBtn;
 	@FXML private Button arcade;
 	@FXML public ListView<String> chooseLoad;
 	@FXML private Button load;
-
 	private AudioClip start=new AudioClip(this.getClass().getResource("start.wav").toString());
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//chooseLevel.getItems().addAll("Easy","Medium","Hard");
+		chooseLevel.getItems().addAll("Easy","Medium","Hard");
+		chooseLevel.setValue("Easy");
 	    start.setCycleCount(AudioClip.INDEFINITE);
 	    //start.play();
 
@@ -42,7 +39,7 @@ public class StartController implements Initializable {
 
 	public void startClassic(ActionEvent event) throws IOException {
 
-		Level level = new EasyLevel();
+		Level level = setLevel(chooseLevel.getValue());
 		FXMLLoader loader = new FXMLLoader();
 
 		loader.setLocation(getClass().getResource("Mode.fxml"));
@@ -62,6 +59,18 @@ public class StartController implements Initializable {
 
 		window.show();
 
+	}
+
+	public Level setLevel(String str){
+		switch (str) {
+			case "Easy":
+				return new EasyLevel();
+			case "Medium":
+				return new NormalLevel();
+			case "Hard":
+				return new HardLevel();
+		}
+		return null;
 	}
 
 

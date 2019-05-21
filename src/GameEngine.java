@@ -24,8 +24,8 @@ import javafx.stage.Stage;
 public class GameEngine implements GameActions, Initializable {
     private Model model;
     private AnimationGUI view;
-    @FXML
-    private ImageView sword1;
+    @FXML private Label lbl;
+    @FXML private ImageView sword1;
     @FXML private ImageView sword2;
     @FXML private ImageView sword3;
     @FXML private Button start;
@@ -96,7 +96,7 @@ public class GameEngine implements GameActions, Initializable {
                 slice.play();
                 model.getFruits(0).slice();
                 model.addScore(model.getFruits(0).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -108,7 +108,7 @@ public class GameEngine implements GameActions, Initializable {
                 slice.play();
                 model.getFruits(1).slice();
                 model.addScore(model.getFruits(1).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -119,9 +119,8 @@ public class GameEngine implements GameActions, Initializable {
                 fruit3.setDisable(true);
                 slice.play();
                 model.getFruits(2).slice();
-                System.out.println("Sliced " + model.getFruits(2).isSliced());
                 model.addScore(model.getFruits(2).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -132,7 +131,7 @@ public class GameEngine implements GameActions, Initializable {
                 slice.play();
                 model.getFruits(3).slice();
                 model.addScore(model.getFruits(3).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -143,7 +142,7 @@ public class GameEngine implements GameActions, Initializable {
                 slice.play();
                 model.getFruits(4).slice();
                 model.addScore(model.getFruits(4).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -154,7 +153,7 @@ public class GameEngine implements GameActions, Initializable {
                 slice.play();
                 model.getFruits(5).slice();
                 model.addScore(model.getFruits(5).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -165,7 +164,7 @@ public class GameEngine implements GameActions, Initializable {
                 superFruit5.setDisable(true);
                 slice.play();
                 model.addScore(model.getSpecialFruits(0).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
+//                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
             }
         });
@@ -175,9 +174,7 @@ public class GameEngine implements GameActions, Initializable {
                 superFruit10.setDisable(true);
                 slice.play();
                 model.addScore(model.getSpecialFruits(1).getSliceScore());
-                model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                // fruit1.slice(true);
             }
         });
 
@@ -203,10 +200,10 @@ public class GameEngine implements GameActions, Initializable {
                 gameover.play();
                 fatalBomb.setDisable(true);
                 endGame();
-                // fruit1.slice(true);
             }
         });
     }
+
 
     public void removeLife(){
         int x = model.removeLife();
@@ -233,6 +230,7 @@ public class GameEngine implements GameActions, Initializable {
         fatalBomb.setVisible(false);
         superFruit5.setVisible(false);
         superFruit10.setVisible(false);
+        lbl.setText("You Scored :" + model.getCurrentScore());
         render(model.getCurrentScore(),model.getHighScore(),model.getLives());
         GameOverWdw.setVisible(true);
         GameOverWdw.setDisable(false);
@@ -337,10 +335,11 @@ public class GameEngine implements GameActions, Initializable {
 
     @Override
     public void ResetGame() {
+        view.stopTimeline();
         model.reset();
         render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-        view.stopTimeline();
         startAnimation();
+        sliceObjects();
     }
 
 
