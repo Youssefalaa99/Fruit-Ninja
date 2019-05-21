@@ -136,16 +136,19 @@ public class XmlFile {
         switch(levelInt){
 
             case 1:{
-                EasyLevel  level = new EasyLevel();
+                Level level = new EasyLevel();
                 model.setLevel(level);
+                break;
             }
             case  2:{
-                NormalLevel level = new NormalLevel();
+                Level level = new NormalLevel();
                 model.setLevel(level);
+                break;
             }
             case 3 :{
-                HardLevel level = new HardLevel();
+                Level level = new HardLevel();
                 model.setLevel(level);
+                break;
             }
 
         }

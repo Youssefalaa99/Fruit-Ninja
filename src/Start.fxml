@@ -24,7 +24,7 @@
       </ImageView>
       <VBox alignment="CENTER" layoutX="182.0" layoutY="152.0" prefHeight="352.0" prefWidth="150.0" spacing="10.0">
          <children>
-            <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startGame" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Classic">
+            <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startClassic" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Classic">
                <font>
                   <Font name="Comic Sans MS Bold" size="16.0" />
                </font>
@@ -66,7 +66,7 @@
                   <InnerShadow choke="0.21" height="85.0" radius="25.75" width="20.0" />
                </effect>
             </ChoiceBox>
-            <Button fx:id="arcade" mnemonicParsing="false" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Arcade">
+            <Button fx:id="arcade" mnemonicParsing="false" onAction="#startArcade" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Arcade">
                <font>
                   <Font name="Comic Sans MS Bold" size="14.0" />
                </font>

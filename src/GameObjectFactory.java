@@ -95,7 +95,6 @@ public class GameObjectFactory {
 		int rdmHeight = ThreadLocalRandom.current().nextInt(-275, 275);
 		path.getElements().add(new MoveTo(rdmHeight, 0));
 		path.getElements().add(new LineTo(0, 1000));
-		System.out.println(path);
 		return path;
 	}
 

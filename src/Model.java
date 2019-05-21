@@ -35,6 +35,10 @@ public class Model {
         addSpecialFruit(factory.createSpecialFruit("S2"));
     }
 
+    public String getGameType() {
+        return gameType;
+    }
+
     public void reset(){
         lives = 3 ;
         currentScore = 0;
@@ -110,7 +114,7 @@ public class Model {
         return lives;
     }
 
-   
+
 
     public int getCurrentScore() {
         return currentScore;
@@ -131,7 +135,7 @@ public class Model {
     public Level getLevel() {
         return level;
     }
-    
+
     public int removeLife() {
     	int flag=0;
         lives--;
@@ -150,12 +154,19 @@ public class Model {
         file.saveGame(this);
     }
 
+    public void decreaseScore(){
+        currentScore-=5;
+        if(currentScore<0)
+            currentScore=0;
+    }
+
     public void load() {
         Model loadedModel = file.loadGame();
         this.setLevel(loadedModel.getLevel());
         this.setCurrentScore(loadedModel.getCurrentScore());
         this.setHighScore(loadedModel.getHighScore());
         this.setLives(loadedModel.getLives());
+        this.setGameType("Classic");
         fruits = new ArrayList<>();
         bombs = new ArrayList<>();
         specialFruits = new ArrayList<>();

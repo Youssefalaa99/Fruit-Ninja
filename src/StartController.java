@@ -27,35 +27,35 @@ public class StartController implements Initializable {
 	@FXML private Button arcade;
 	@FXML public ListView<String> chooseLoad;
 	@FXML private Button load;
-	
+
 	private AudioClip start=new AudioClip(this.getClass().getResource("start.wav").toString());
-	
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//chooseLevel.getItems().addAll("Easy","Medium","Hard");
 	    start.setCycleCount(AudioClip.INDEFINITE);
 	    //start.play();
-		
-	}
-	
 
-	public void startGame(ActionEvent event) throws IOException {
+	}
+
+
+	public void startClassic(ActionEvent event) throws IOException {
 
 		Level level = new EasyLevel();
 		FXMLLoader loader = new FXMLLoader();
-		
+
 		loader.setLocation(getClass().getResource("Mode.fxml"));
 
 		Parent GameGUI = loader.load();
-		
+
 		Scene GameScene = new Scene(GameGUI);
 
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 
 		GameEngine engine = loader.getController();
-		engine.newGame(level);
+		engine.newGame(level,"Classic");
 		start.stop();
 
 		window.setScene(GameScene);
@@ -64,24 +64,26 @@ public class StartController implements Initializable {
 
 	}
 
-	
-	
-	public void startArcade(ActionEvent event) throws IOException {
 
-		Level level = new EasyLevel();
-		
+
+	public void startArcade(ActionEvent event) throws IOException {
+		Level level = new NormalLevel();
+
 		FXMLLoader loader = new FXMLLoader();
-		
-		loader.setLocation(getClass().getResource("arcadef.fxml"));
+
+		loader.setLocation(getClass().getResource("Mode.fxml"));
 
 		Parent GameGUI = loader.load();
-		
+
 		Scene GameScene = new Scene(GameGUI);
 
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+
+		GameEngine engine = loader.getController();
+		engine.newGame(level,"Arcade");
 		start.stop();
-		
+
 		window.setScene(GameScene);
 
 		window.show();

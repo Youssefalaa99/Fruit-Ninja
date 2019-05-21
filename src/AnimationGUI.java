@@ -3,15 +3,9 @@ import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.event.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
-
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
 
 public class AnimationGUI {
 
@@ -30,20 +24,27 @@ public class AnimationGUI {
 	}
 
 
-	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle) {
+	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle,String gameType) {
 
-		timelineFruit.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
-//		timeline.setDelay(Duration.millis(randomNum));
-		timelineFruit.setCycleCount(Timeline.INDEFINITE);
-		timelineFruit.play();
+		if(gameType.equals("Classic")) {
+			timelineFruit.getKeyFrames()
+					.add(new KeyFrame(Duration.millis(delay + cycle + 200), randomFruitPathClassic(fruit, object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+			timelineFruit.setCycleCount(Timeline.INDEFINITE);
+			timelineFruit.play();
+		}
+		else if(gameType.equals("Arcade")){
+			timelineFruit.getKeyFrames()
+					.add(new KeyFrame(Duration.millis(delay + cycle + 200), randomFruitPathArcade(fruit, object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+			timelineFruit.setCycleCount(Timeline.INDEFINITE);
+			timelineFruit.play();
+		}
 
 	}
 
 	public void moveBomb(ImageView bomb,GameObject object, double delay, double cycle) {
 //		Timeline timeline = new Timeline();
 		timelineBomb.getKeyFrames()
-				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(bomb,object, delay, cycle),new KeyValue(bomb.rotateProperty(),360)));
+				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(bomb,object, delay, cycle)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineBomb.setCycleCount(Timeline.INDEFINITE);
 		timelineBomb.play();
@@ -61,7 +62,7 @@ public class AnimationGUI {
 
 	}
 
-	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, double delay, double cycle) {
+	public EventHandler<ActionEvent> randomFruitPathClassic(ImageView fruit, GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
 			Path path;
@@ -75,6 +76,26 @@ public class AnimationGUI {
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
 			pathTrans.setOnFinished(event1 -> check(object));
+
+		};
+
+		return event;
+
+	}
+
+	public EventHandler<ActionEvent> randomFruitPathArcade(ImageView fruit, GameObject object, double delay, double cycle) {
+
+		EventHandler<ActionEvent> event = e -> {
+			Path path;
+			fruit.setVisible(true);
+			fruit.setDisable(false);
+			object.setIsSliced(false);
+			System.out.println("Changed to not sliced");
+			fruit.setImage(object.getImage()[0]);
+			path =	 (GameObjectFactory.getInstance()).rdmPath();
+			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
+			pathTrans.setDelay(Duration.millis(delay));
+			pathTrans.play();
 
 		};
 

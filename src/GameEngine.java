@@ -55,13 +55,25 @@ public class GameEngine implements GameActions, Initializable {
 
 
 
-    public void newGame(Level level) {
+    public void newGame(Level level,String gameType) {
+        if(gameType.equals("Arcade")){
+            save.setVisible(false);
+            save.setDisable(true);
+            livesBox.setVisible(false);
+        }
         this.model = new Model();
         model.setLevel(level);
+        model.setGameType(gameType);
 		view = new AnimationGUI(this);
         render(model.getCurrentScore(),model.getHighScore(),model.getLives());
         startAnimation();
         sliceObjects();
+        if(model.getGameType().equals("Arcade")){
+            countDownTimer();
+        }
+        else if(model.getGameType().equals("Classic")){
+            startTimer();
+        }
     }
 
     @Override
@@ -86,8 +98,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getFruits(0).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println(fruit1.getTranslateX());
-                System.out.println(fruit1.getTranslateY());
             }
         });
         fruit2.setOnMouseDragEntered(mouseEvent -> {
@@ -100,7 +110,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getFruits(1).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
             }
         });
 
@@ -114,7 +123,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getFruits(2).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
             }
         });
         fruit4.setOnMouseDragEntered(mouseEvent -> {
@@ -126,7 +134,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getFruits(3).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
             }
         });
         fruit5.setOnMouseDragEntered(mouseEvent -> {
@@ -138,7 +145,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getFruits(4).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
             }
         });
         fruit6.setOnMouseDragEntered(mouseEvent -> {
@@ -150,7 +156,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getFruits(5).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
             }
         });
 
@@ -162,7 +167,6 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getSpecialFruits(0).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
             }
         });
         superFruit10.setOnMouseDragEntered(mouseEvent -> {
@@ -173,17 +177,24 @@ public class GameEngine implements GameActions, Initializable {
                 model.addScore(model.getSpecialFruits(1).getSliceScore());
                 model.setCurrentScore(model.getCurrentScore());
                 render(model.getCurrentScore(),model.getHighScore(),model.getLives());
-                System.out.println("Score: "+model.getCurrentScore());
                 // fruit1.slice(true);
             }
         });
 
         dangerousBomb.setOnMouseDragEntered(mouseEvent -> {
             if (mouseEvent.isPrimaryButtonDown()) {
-                dangerousBomb.setVisible(false);
-                bomb.play();
-                dangerousBomb.setDisable(true);
-                removeLife();
+                if(model.getGameType().equals("Classic")) {
+                    dangerousBomb.setVisible(false);
+                    bomb.play();
+                    dangerousBomb.setDisable(true);
+                    removeLife();
+                }
+                else if(model.getGameType().equals("Arcade")){
+                    dangerousBomb.setVisible(false);
+                    bomb.play();
+                    dangerousBomb.setDisable(true);
+                    decreaseScore();
+                }
             }
         });
         fatalBomb.setOnMouseDragEntered(mouseEvent -> {
@@ -192,7 +203,6 @@ public class GameEngine implements GameActions, Initializable {
                 gameover.play();
                 fatalBomb.setDisable(true);
                 endGame();
-                System.out.println("FatalBomb");
                 // fruit1.slice(true);
             }
         });
@@ -203,6 +213,11 @@ public class GameEngine implements GameActions, Initializable {
         if(x==1){
             endGame();
         }
+        render(model.getCurrentScore(),model.getHighScore(),model.getLives());
+    }
+
+    public void decreaseScore(){
+        model.decreaseScore();
         render(model.getCurrentScore(),model.getHighScore(),model.getLives());
     }
 
@@ -258,22 +273,28 @@ public class GameEngine implements GameActions, Initializable {
         double x1= model.getLevel().getLevelSpeed();
         double x2= model.getLevel().getNoOfObjects();
 
-//        view.moveFruit(fruit1,model.getFruits(0),x2* ThreadLocalRandom.current().nextInt(5000, 10000),
-//                x1*ThreadLocalRandom.current().nextInt(4000, 6000));
-//        view.moveFruit(fruit2,model.getFruits(1),x2*ThreadLocalRandom.current().nextInt(1000, 3000),
-//                x1*ThreadLocalRandom.current().nextInt(4000, 6000));
+        view.moveFruit(fruit1,model.getFruits(0),x2* ThreadLocalRandom.current().nextInt(5000, 10000),
+                x1*ThreadLocalRandom.current().nextInt(4000, 6000),model.getGameType());
+        view.moveFruit(fruit2,model.getFruits(1),x2*ThreadLocalRandom.current().nextInt(1000, 3000),
+                x1*ThreadLocalRandom.current().nextInt(4000, 6000),model.getGameType());
         view.moveFruit(fruit3,model.getFruits(2), x2*ThreadLocalRandom.current().nextInt(1000, 5000),
-                x1*ThreadLocalRandom.current().nextInt(4000, 6000));
-//        view.moveFruit(fruit4,model.getFruits(3), x2*ThreadLocalRandom.current().nextInt(5000, 10000),
-//                x1*ThreadLocalRandom.current().nextInt(3000, 6000));
-//        view.moveFruit(fruit5,model.getFruits(4), x2*ThreadLocalRandom.current().nextInt(3000, 5000),
-//                x1*ThreadLocalRandom.current().nextInt(4000, 6000));
-//        view.moveFruit(fruit6,model.getFruits(5), x2*ThreadLocalRandom.current().nextInt(1000, 3000),
-//                x1*ThreadLocalRandom.current().nextInt(4000, 6000));
+                x1*ThreadLocalRandom.current().nextInt(4000, 6000),model.getGameType());
+        view.moveFruit(fruit4,model.getFruits(3), x2*ThreadLocalRandom.current().nextInt(5000, 10000),
+                x1*ThreadLocalRandom.current().nextInt(3000, 6000),model.getGameType());
+        view.moveFruit(fruit5,model.getFruits(4), x2*ThreadLocalRandom.current().nextInt(3000, 5000),
+                x1*ThreadLocalRandom.current().nextInt(4000, 6000),model.getGameType());
+        view.moveFruit(fruit6,model.getFruits(5), x2*ThreadLocalRandom.current().nextInt(1000, 3000),
+                x1*ThreadLocalRandom.current().nextInt(4000, 6000),model.getGameType());
         view.moveBomb(dangerousBomb,model.getBombs(0), x2*ThreadLocalRandom.current().nextInt(5000, 10000),
                 x1*ThreadLocalRandom.current().nextInt(4000, 6000));
-        view.moveBomb(fatalBomb,model.getBombs(1), x2*ThreadLocalRandom.current().nextInt(2000, 5000),
-                x1*ThreadLocalRandom.current().nextInt(4000, 6000));
+        if(model.getGameType().equals("Classic")) {
+            view.moveBomb(fatalBomb, model.getBombs(1), x2 * ThreadLocalRandom.current().nextInt(2000, 5000),
+                    x1 * ThreadLocalRandom.current().nextInt(4000, 6000));
+        }
+        else if (model.getGameType().equals("Arcade")){
+            view.moveBomb(dangerousBomb,model.getBombs(0), x2*ThreadLocalRandom.current().nextInt(5000, 10000),
+                    x1*ThreadLocalRandom.current().nextInt(4000, 6000));
+        }
         view.moveSuper(superFruit5,model.getSpecialFruits(0), ThreadLocalRandom.current().nextInt(10000, 20000),
                 ThreadLocalRandom.current().nextInt(3000, 5000));
         view.moveSuper(superFruit10,model.getSpecialFruits(1), ThreadLocalRandom.current().nextInt(10000, 20000),
@@ -343,6 +364,27 @@ public class GameEngine implements GameActions, Initializable {
         }, 1000,1000);
     }
 
+    public void countDownTimer() {
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+            int interval=59;
+            int counter=0;
+            public void run() {
+
+                if(interval > 0)
+                {
+                    Platform.setImplicitExit(false);
+                    Platform.runLater(() -> timerLabel.setText(counter+":"+(interval)));
+                    interval--;
+                }
+                if(interval==0){
+                    endGame();
+                }
+
+            }
+        }, 1000,1000);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pane.addEventFilter(MouseEvent.DRAG_DETECTED, (MouseEvent mouseEvent) -> {
@@ -350,8 +392,6 @@ public class GameEngine implements GameActions, Initializable {
         });
         GameOverWdw.setVisible(false);
         GameOverWdw.setDisable(true);
-
-        startTimer();
     }
 
 
