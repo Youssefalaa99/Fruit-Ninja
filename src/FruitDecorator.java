@@ -14,73 +14,14 @@ public abstract class FruitDecorator implements GameObject { // when initialized
 		return fruit.getSliceScore();
 	}
 
-	public void setXlocation(int xlocation) {
-		fruit.setXlocation(xlocation);
-	}
-
-	public void setYlocation(int ylocation) {
-		fruit.setYlocation(ylocation);
-	}
-
-	public void setMaxHeight(int maxHeight) {
-		fruit.setMaxHeight(maxHeight);
-	}
-
-	public void setInitialVelocity(int initialVelocity) {
-		fruit.setInitialVelocity(initialVelocity);
-	}
-
-	public void setFallingVelocity(int fallingVelocity) {
-		fruit.setFallingVelocity(fallingVelocity);
-	}
-
-	public void setHasMovedOffScreen(Boolean hasMovedOffScreen) {
-		fruit.setHasMovedOffScreen(hasMovedOffScreen);
-	}
-
-	@Override
-	public int getXlocation() {
-		return fruit.getXlocation();
-	}
-
-	@Override
-	public int getYlocation() {
-		return fruit.getYlocation();
-	}
-
-	@Override
-	public int getMaxHeight() {
-		return fruit.getMaxHeight();
-	}
-
-	@Override
-	public int getInitialVelocity() {
-		return fruit.getInitialVelocity();
-	}
-
-	@Override
-	public int getFallingVelocity() {
-		return fruit.getFallingVelocity();
-	}
-
 	@Override
 	public boolean isSliced() {
 		return fruit.isSliced();
 	}
 
 	@Override
-	public boolean hasMovedOffScreen() {
-		return fruit.hasMovedOffScreen();
-	}
-
-	@Override
 	public void slice() {
 		fruit.slice();
-	}
-
-	@Override
-	public void move(double time) {
-		fruit.move(time);
 	}
 
 	@Override

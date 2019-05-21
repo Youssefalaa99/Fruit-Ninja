@@ -22,8 +22,6 @@ public class GameObjectFactory {
 	}
 
 	public GameObject createFruit(String fruit) {
-//		Random random = new Random();
-//		int x = random.nextInt(4);
 		switch (fruit) {
 		case "B":
 			return new Fruit(images.getBananaImages(), rdmPath());
@@ -39,8 +37,6 @@ public class GameObjectFactory {
 	}
 
 	public GameObject createSpecialFruit(String specialFruit) {
-//		Random random = new Random();
-//		int x = random.nextInt(3);
 		Fruit specialFruitOne = new Fruit(images.getSpecialFruit1Images(), rdmLine());
 		Fruit specialFruitTwo = new Fruit(images.getSpecialFruit2Images(), rdmLine());
 		switch (specialFruit) {
@@ -55,8 +51,6 @@ public class GameObjectFactory {
 	}
 
 	public GameObject createBomb(String bomb) {
-//		Random random = new Random();
-//		int x = random.nextInt(3);
 		switch (bomb) {
 		case "D":
 			return new DangerousBomb(images.getDangerousBombImages(), rdmPath());

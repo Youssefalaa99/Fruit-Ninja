@@ -32,7 +32,6 @@ public class StartController implements Initializable {
 		chooseLevel.getItems().addAll("Easy","Medium","Hard");
 		chooseLevel.setValue("Easy");
 	    start.setCycleCount(AudioClip.INDEFINITE);
-	    //start.play();
 
 	}
 
@@ -126,6 +125,7 @@ public class StartController implements Initializable {
 	public void exitGame() {
 		Stage stage = (Stage) exitBtn.getScene().getWindow();
 		stage.close();
+		System.exit(0);
 		
 	}
 
