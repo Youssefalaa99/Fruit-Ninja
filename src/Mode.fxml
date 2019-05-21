@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEngine">
 	<children>
 		<ImageView fx:id="background" fitHeight="605.0" fitWidth="800.0" layoutY="-4.0" pickOnBounds="true">
 			<image>
@@ -128,7 +128,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="save" layoutX="457.0" layoutY="21.0" mnemonicParsing="false" onAction="#save" prefHeight="34.0" prefWidth="68.0" style="-fx-background-radius: 200;" text="Save" textFill="#456f26">
+      <Button fx:id="save" layoutX="457.0" layoutY="21.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="34.0" prefWidth="68.0" style="-fx-background-radius: 200;" text="Save" textFill="#456f26">
          <font>
             <Font size="18.0" />
          </font>

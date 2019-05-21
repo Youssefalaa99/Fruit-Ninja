@@ -20,31 +20,30 @@ public class AnimationGUI {
 	private Timeline timelineFruit;
 	private Timeline timelineBomb;
 	private Timeline timelineSpecialFruit;
-	private Gui gui;
+	private GameEngine engine;
 
-	public AnimationGUI(Gui gui){
+	public AnimationGUI(GameEngine engine){
 		timelineFruit = new Timeline();
 		timelineBomb = new Timeline();
 		timelineSpecialFruit = new Timeline();
-		this.gui = gui;
+		this.engine = engine;
 	}
 
 
-	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle/*,Model model,ArrayList<GameObject> objects*/) {
-//		Timeline timeline = new Timeline();
+	public void moveFruit(ImageView fruit,GameObject object, double delay, double cycle) {
 
 		timelineFruit.getKeyFrames()
-				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle/*,model,objects*/), new KeyValue(fruit.rotateProperty(), 360)));
+				.add(new KeyFrame(Duration.millis(delay + cycle), randomFruitPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineFruit.setCycleCount(Timeline.INDEFINITE);
 		timelineFruit.play();
 
 	}
 
-	public void moveBomb(ImageView Bomb,GameObject object, double delay, double cycle) {
+	public void moveBomb(ImageView bomb,GameObject object, double delay, double cycle) {
 //		Timeline timeline = new Timeline();
 		timelineBomb.getKeyFrames()
-				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(Bomb,object, delay, cycle)));
+				.addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(bomb,object, delay, cycle),new KeyValue(bomb.rotateProperty(),360)));
 //		timeline.setDelay(Duration.millis(randomNum));
 		timelineBomb.setCycleCount(Timeline.INDEFINITE);
 		timelineBomb.play();
@@ -52,85 +51,68 @@ public class AnimationGUI {
 
 	}
 
-	public void moveSuper(ImageView fruit,GameObject object, double delay, double cycle) {
+	public void moveSuper(ImageView specialFruit,GameObject object, double delay, double cycle) {
 
 //		Timeline t = new Timeline();
 
-		timelineSpecialFruit.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(fruit,object, delay, cycle), new KeyValue(fruit.rotateProperty(), 360)));
+		timelineSpecialFruit.getKeyFrames().addAll(new KeyFrame(Duration.millis(delay + cycle), randomSuperPath(specialFruit,object, delay, cycle), new KeyValue(specialFruit.rotateProperty(), 360)));
 		timelineSpecialFruit.setCycleCount(1000);
 		timelineSpecialFruit.play();
 
 	}
 
-	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, double delay, double cycle/*,Model model,ArrayList<GameObject> objects*/) {
+	public EventHandler<ActionEvent> randomFruitPath(ImageView fruit,GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
-//			check(model,objects);
 			Path path;
 			fruit.setVisible(true);
 			fruit.setDisable(false);
             object.setIsSliced(false);
+			System.out.println("Changed to not sliced");
             fruit.setImage(object.getImage()[0]);
 			path =	 (GameObjectFactory.getInstance()).rdmPath();
 			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
-//			objects.add(object);
+			pathTrans.setOnFinished(event1 -> check(object));
+
 		};
 
 		return event;
 
 	}
 
-	public EventHandler<ActionEvent> randomBombPath(ImageView fruit,GameObject object, double delay, double cycle) {
+	public EventHandler<ActionEvent> randomBombPath(ImageView bomb,GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
 			Path path;
-			fruit.setVisible(true);
-			fruit.setDisable(false);
-            fruit.setImage(object.getImage()[0]);
+			bomb.setVisible(true);
+			bomb.setDisable(false);
+            bomb.setImage(object.getImage()[0]);
             path =	 (GameObjectFactory.getInstance()).rdmPath();
 
-			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
+			pathTrans = new PathTransition(Duration.millis(cycle), path, bomb);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
-System.out.println("bomb");
 		};
 
 		return event;
 
 	}
 
-//	public EventHandler<ActionEvent> randomBombPath(ImageView fruit, int delay, int cycle, int x1, int x2) {
-//
-//		EventHandler<ActionEvent> event = e -> {
-//			fruit.setVisible(true);
-//			fruit.setDisable(false);
-////			fruit.setImage(new Image("watermelon.png"));
-//			Path path = new Path();
-//			path.getElements().add(new MoveTo(0, 0));
-//			path.getElements().add(new CubicCurveTo(0, -800, x1, -800, x2, 0));
-//			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
-//			pathTrans.setDelay(Duration.millis(delay));
-//			pathTrans.play();
-//
-//		};
-//
-//		return event;
-//
-//	}
 
-	public EventHandler<ActionEvent> randomSuperPath(ImageView fruit,GameObject object, double delay, double cycle) {
+	public EventHandler<ActionEvent> randomSuperPath(ImageView specialFruit,GameObject object, double delay, double cycle) {
 
 		EventHandler<ActionEvent> event = e -> {
-			fruit.setVisible(true);
-			fruit.setDisable(false);
+			specialFruit.setVisible(true);
+			specialFruit.setDisable(false);
             object.setIsSliced(false);
-			fruit.setImage(object.getImage()[0]);
+			specialFruit.setImage(object.getImage()[0]);
 			Path path = (GameObjectFactory.getInstance()).rdmLine();
-			pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
+			pathTrans = new PathTransition(Duration.millis(cycle), path, specialFruit);
 			pathTrans.setDelay(Duration.millis(delay));
 			pathTrans.play();
+
 
 		};
 
@@ -138,26 +120,15 @@ System.out.println("bomb");
 
 	}
 
-	/*public void check(Model model,ArrayList<GameObject> objects){
-		Iterator<GameObject> iterator = objects.iterator();
-		if(objects.isEmpty()==false){
-			while (iterator.hasNext()){
-				GameObject object = iterator.next();
-				if(object.isSliced()==false){
-					int x = model.removeLife();
-					if(x==1){
-						stopTimeline();
-					}
-					gui.render(model);
-					iterator.remove();
-					System.out.println("-------Remove life fruit not sliced!!!!!!! ");
-				}
-				else if(object.isSliced()){
-					objects.remove(object);
-				}
-			}
+
+	public void check(GameObject object){
+		System.out.println("Checking :" + object.isSliced());
+		if(object.isSliced()==false){
+			engine.removeLife();
 		}
-	}*/
+	}
+
+
 
 
 	public void stopTimeline(){

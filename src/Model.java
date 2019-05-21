@@ -7,6 +7,7 @@ public class Model {
     private int currentScore;
     private int highScore;
     private Level level;
+    private String gameType;
     private List<GameObject> fruits;
     private List<GameObject> bombs;
     private List<GameObject> specialFruits;
@@ -32,6 +33,16 @@ public class Model {
         addBomb(factory.createBomb("F"));
         addSpecialFruit(factory.createSpecialFruit("S1"));
         addSpecialFruit(factory.createSpecialFruit("S2"));
+    }
+
+    public void reset(){
+        lives = 3 ;
+        currentScore = 0;
+        setHighScore(file.getHighScore());
+    }
+
+    public void setGameType(String gameType) {
+        this.gameType = gameType;
     }
 
     public void addScore(int score){
@@ -125,71 +136,11 @@ public class Model {
     	int flag=0;
         lives--;
     	if(lives<=0) {
-    		endGame();
     		flag=1;
     	}
     	return flag;
     }
 
-    public void endGame(){
-        lives=0;
-    }
-
-
-    //To be modified: get objects from arrayList
-    public GameObject getRandomFruit(){
-        GameObjectFactory factory = GameObjectFactory.getInstance();
-        GameObject object = null;
-        Random random = new Random();
-        int rand = random.nextInt(4);
-        if(rand == 0){
-            object = factory.createFruit("B");
-        }
-        else if(rand == 1){
-            object = factory.createFruit("R");
-        }
-        else if(rand == 2){
-            object = factory.createFruit("P");
-        }
-        else if(rand == 3){
-            object = factory.createFruit("W");
-        }
-        return object;
-    }
-
-    public GameObject getRandomBomb(){
-        GameObjectFactory factory = GameObjectFactory.getInstance();
-        GameObject object = null;
-        Random random = new Random();
-        int rand = random.nextInt(3);
-        if(rand == 0){
-            object = factory.createBomb("D");
-        }
-        else if(rand == 1){
-            object = factory.createBomb("D");
-        }
-        else if(rand == 2){
-            object = factory.createBomb("F");
-        }
-        return object;
-    }
-
-    public GameObject getRandomSpecialFruit(){
-        GameObjectFactory factory = GameObjectFactory.getInstance();
-        GameObject object = null;
-        Random random = new Random();
-        int rand = random.nextInt(3);
-        if(rand == 0){
-            object = factory.createSpecialFruit("S1");
-        }
-        else if(rand == 1){
-            object = factory.createSpecialFruit("S1");
-        }
-        else if(rand == 2){
-            object = factory.createSpecialFruit("S2");
-        }
-        return object;
-    }
 
     public void setLives(int lives){
         this.lives=lives;

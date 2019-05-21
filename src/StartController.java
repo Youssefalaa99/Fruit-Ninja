@@ -54,9 +54,7 @@ public class StartController implements Initializable {
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 
-		Gui gui = loader.getController();
-		GameEngine engine = GameEngine.getInstance();
-		engine.setGui(gui);
+		GameEngine engine = loader.getController();
 		engine.newGame(level);
 		start.stop();
 
@@ -92,10 +90,25 @@ public class StartController implements Initializable {
 	
 	
 	public void loadGame(ActionEvent event) throws IOException {
-		Gui gui = new Gui();
-		GameEngine engine = GameEngine.getInstance();
-		engine.setGui(gui);
+		FXMLLoader loader = new FXMLLoader();
+
+		loader.setLocation(getClass().getResource("Mode.fxml"));
+
+		Parent GameGUI = loader.load();
+
+		Scene GameScene = new Scene(GameGUI);
+
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+
+		GameEngine engine = loader.getController();
 		engine.loadGame();
+		start.stop();
+
+		window.setScene(GameScene);
+
+		window.show();
+
 		
 	}
 
