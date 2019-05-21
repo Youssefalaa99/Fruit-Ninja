@@ -10,7 +10,6 @@ import javafx.util.Duration;
 public class AnimationGUI {
 
 	private PathTransition pathTrans;
-	private GameObjectFactory factory=GameObjectFactory.getInstance();
 	private Timeline timelineFruit;
 	private Timeline timelineBomb;
 	private Timeline timelineSpecialFruit;

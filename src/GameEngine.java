@@ -236,6 +236,8 @@ public class GameEngine implements GameActions, Initializable {
         render(model.getCurrentScore(),model.getHighScore(),model.getLives());
         GameOverWdw.setVisible(true);
         GameOverWdw.setDisable(false);
+        save.setDisable(true);
+        livesBox.setVisible(false);
         timer.cancel();
     }
 
