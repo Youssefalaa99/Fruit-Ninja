@@ -32,6 +32,7 @@ public class StartController implements Initializable {
 		chooseLevel.getItems().addAll("Easy","Medium","Hard");
 		chooseLevel.setValue("Easy");
 	    start.setCycleCount(AudioClip.INDEFINITE);
+	    start.play();
 
 	}
 
