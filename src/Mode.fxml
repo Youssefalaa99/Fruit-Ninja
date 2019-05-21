@@ -164,14 +164,6 @@
                   <InnerShadow color="#0b0b0b" height="49.6" radius="55.8775" width="175.91" />
                </effect>
             </Button>
-            <Button fx:id="save1" mnemonicParsing="false" onAction="#ResetGame" prefHeight="34.0" prefWidth="75.0" style="-fx-background-radius: 200;" text="Reset">
-               <font>
-                  <Font name="System Bold Italic" size="19.0" />
-               </font>
-               <effect>
-                  <InnerShadow color="#0b0b0b" height="49.6" radius="55.8775" width="175.91" />
-               </effect>
-            </Button>
          </children>
       </VBox>
 	</children>

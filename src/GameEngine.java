@@ -231,7 +231,11 @@ public class GameEngine implements GameActions, Initializable {
         fatalBomb.setVisible(false);
         superFruit5.setVisible(false);
         superFruit10.setVisible(false);
-        lbl.setText("You Scored :" + model.getCurrentScore());
+        try {
+            lbl.setText("You Scored :" + model.getCurrentScore());
+        }catch (Exception e){
+            lbl.setText("");
+        }
         render(model.getCurrentScore(), model.getHighScore(), model.getLives());
         GameOverWdw.setVisible(true);
         GameOverWdw.setDisable(false);
@@ -326,25 +330,6 @@ public class GameEngine implements GameActions, Initializable {
         invoker.executeCommand();
         startAnimation();
         render(model.getCurrentScore(), model.getHighScore(), model.getLives());
-        sliceObjects();
-    }
-
-    @Override
-    public void ResetGame() {
-        view.stopTimeline();
-        fruit1.setVisible(false);
-        fruit2.setVisible(false);
-        fruit3.setVisible(false);
-        fruit4.setVisible(false);
-        fruit5.setVisible(false);
-        fruit6.setVisible(false);
-        dangerousBomb.setVisible(false);
-        fatalBomb.setVisible(false);
-        superFruit5.setVisible(false);
-        superFruit10.setVisible(false);
-        model.reset();
-        render(model.getCurrentScore(), model.getHighScore(), model.getLives());
-        startAnimation();
         sliceObjects();
     }
 

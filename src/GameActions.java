@@ -15,15 +15,9 @@ public interface GameActions {
 	 */
 	public void loadGame();
 
-	/**
-	 * resets the game to its initial state
-	 */
-	public void ResetGame();
-
 	public void removeLife();
 
 	public void decreaseScore();
 
 
-
-	}
+}
