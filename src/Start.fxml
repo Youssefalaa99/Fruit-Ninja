@@ -15,21 +15,21 @@
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartController">
+<AnchorPane minHeight="500.0" minWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartController">
    <children>
       <ImageView fitHeight="531.0" fitWidth="531.0" pickOnBounds="true">
          <image>
             <Image url="@LoginGame.jpg" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" layoutX="182.0" layoutY="152.0" prefHeight="352.0" prefWidth="150.0" spacing="10.0">
+      <VBox alignment="CENTER" layoutX="182.0" layoutY="138.0" prefHeight="352.0" prefWidth="150.0" spacing="15.0">
          <children>
-            <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startClassic" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Classic">
+            <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startClassic" prefHeight="0.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="Classic">
                <font>
                   <Font name="Comic Sans MS Bold" size="16.0" />
                </font>
                <graphic>
-                  <StackPane>
+                  <StackPane prefHeight="44.0" prefWidth="117.0">
                      <children>
                         <Ellipse radiusX="60.0" radiusY="30.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke-width: 3;">
                            <fill>
@@ -66,7 +66,7 @@
                   <InnerShadow choke="0.21" height="85.0" radius="25.75" width="20.0" />
                </effect>
             </ChoiceBox>
-            <Button fx:id="arcade" mnemonicParsing="false" onAction="#startArcade" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Arcade">
+            <Button fx:id="arcade" mnemonicParsing="false" onAction="#startArcade" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Arcade">
                <font>
                   <Font name="Comic Sans MS Bold" size="14.0" />
                </font>
@@ -103,7 +103,7 @@
                   </StackPane>
                </graphic>
             </Button>
-            <Button fx:id="load" mnemonicParsing="false" onAction="#loadGame" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Resume">
+            <Button fx:id="load" mnemonicParsing="false" onAction="#loadGame" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Resume">
                <font>
                   <Font name="Comic Sans MS Bold" size="14.0" />
                </font>
@@ -140,7 +140,7 @@
                   </StackPane>
                </graphic>
             </Button>
-            <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitGame" prefHeight="64.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Exit">
+            <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitGame" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: transparent;" text="Exit">
                <font>
                   <Font name="Comic Sans MS Bold" size="16.0" />
                </font>

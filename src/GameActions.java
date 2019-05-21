@@ -20,4 +20,10 @@ public interface GameActions {
 	 */
 	public void ResetGame();
 
-}
+	public void removeLife();
+
+	public void decreaseScore();
+
+
+
+	}
