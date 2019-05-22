@@ -233,8 +233,8 @@ public class GameEngine implements GameActions, Initializable {
         superFruit10.setVisible(false);
         try {
             lbl.setText("You Scored :" + model.getCurrentScore());
-        }catch (Exception e){
-            lbl.setText("");
+        } catch (Exception e) {
+
         }
         render(model.getCurrentScore(), model.getHighScore(), model.getLives());
         GameOverWdw.setVisible(true);
@@ -290,11 +290,11 @@ public class GameEngine implements GameActions, Initializable {
                 x1 * ThreadLocalRandom.current().nextInt(4000, 6000));
         if (model.getGameType().equals("Classic")) {
             view.moveBomb(fatalBomb, model.getBombs(1), x2 * ThreadLocalRandom.current().nextInt(2000, 5000),
-                    x1 * ThreadLocalRandom.current().nextInt(4000, 6000));
-        } else if (model.getGameType().equals("Arcade")) {
-            view.moveBomb(dangerousBomb, model.getBombs(0), x2 * ThreadLocalRandom.current().nextInt(5000, 10000),
-                    x1 * ThreadLocalRandom.current().nextInt(4000, 6000));
-        }
+                    x1 * ThreadLocalRandom.current().nextInt(4000, 6000));}
+//        else if (model.getGameType().equals("Arcade")) {
+//            view.moveBomb(dangerousBomb, model.getBombs(0), x2 * ThreadLocalRandom.current().nextInt(5000, 10000),
+//                    x1 * ThreadLocalRandom.current().nextInt(4000, 6000));
+//        }
         view.moveSuper(superFruit5, model.getSpecialFruits(0), ThreadLocalRandom.current().nextInt(10000, 20000),
                 ThreadLocalRandom.current().nextInt(3000, 5000));
         view.moveSuper(superFruit10, model.getSpecialFruits(1), ThreadLocalRandom.current().nextInt(10000, 20000),

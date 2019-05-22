@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="288.14259431045116" y="284.0">FruitDecorator</node>
+    <node x="785.5384276437844" y="1553.0">GameEngine</node>
+    <node x="1015.3185966810959" y="589.0">EasyLevel</node>
+    <node x="1060.1458333333335" y="1340.0">LoadGame</node>
+    <node x="550.5" y="589.0">DangerousBomb</node>
+    <node x="1190.1458333333335" y="1340.0">Invoker</node>
+    <node x="180.14259431045116" y="850.0">GameObjectFactory</node>
+    <node x="701.5" y="589.0">FatalBomb</node>
+    <node x="645.2359384662955" y="0.0">GameObject</node>
+    <node x="26.5" y="435.0">ObjectImages</node>
+    <node x="385.5" y="589.0">SpecialFruitTwo</node>
+    <node x="1502.8047077922072" y="589.0">HardLevel</node>
+    <node x="1013.5685966810959" y="861.0">XmlFile</node>
+    <node x="221.73593846629547" y="97.0">Fruit</node>
+    <node x="930.1458333333333" y="1340.0">SaveGame</node>
+    <node x="220.5" y="589.0">SpecialFruitOne</node>
+    <node x="617.3446583178729" y="262.0">Bombs</node>
+    <node x="1375.8458333333333" y="2268.0">StartController</node>
+    <node x="1666.3047077922072" y="0.0">Game</node>
+    <node x="18.878532776746624" y="1296.0">AnimationGUI</node>
+    <node x="1162.8880411255404" y="1100.0">Command</node>
+    <node x="878.2291666666666" y="1001.0">Model</node>
+    <node x="932.5831606885176" y="295.0">Level</node>
+    <node x="1269.7769300144291" y="589.0">NormalLevel</node>
+    <node x="1360.1458333333335" y="1351.0">GameActions</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="XmlFile" target="EasyLevel">
+      <point x="-7.3333333333332575" y="-24.5" />
+      <point x="1050.2352633477626" y="800.0" />
+      <point x="1066.3185966810959" y="800.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="XmlFile" target="NormalLevel">
+      <point x="22.0" y="-24.5" />
+      <point x="1079.5685966810959" y="820.0" />
+      <point x="1328.2769300144291" y="820.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="StartController" target="Level">
+      <point x="83.59999999999991" y="-101.5" />
+      <point x="1563.9458333333332" y="2248.0" />
+      <point x="1615.3047077922072" y="2248.0" />
+      <point x="1615.3047077922072" y="375.0" />
+      <point x="1001.9581606885176" y="375.0" />
+      <point x="32.375" y="13.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="Fruit">
+      <point x="-21.0" y="-35.5" />
+      <point x="253.64259431045116" y="800.0" />
+      <point x="210.0" y="800.0" />
+      <point x="210.0" y="242.0" />
+      <point x="253.23593846629547" y="242.0" />
+      <point x="-31.5" y="57.5" />
+    </edge>
+    <edge source="AnimationGUI" target="GameObject">
+      <point x="-47.75" y="-68.5" />
+      <point x="66.62853277674662" y="1276.0" />
+      <point x="0.0" y="1276.0" />
+      <point x="0.0" y="47.0" />
+      <point x="653.0930813234384" y="47.0" />
+      <point x="-47.14285714285711" y="13.5" />
+    </edge>
+    <edge source="GameEngine" target="Invoker">
+      <point x="74.25" y="-332.5" />
+      <point x="954.2884276437844" y="1523.0" />
+      <point x="1302.6458333333335" y="1523.0" />
+      <point x="37.5" y="24.5" />
+    </edge>
+    <edge source="StartController" target="HardLevel">
+      <point x="41.799999999999955" y="-101.5" />
+      <point x="1522.1458333333335" y="2238.0" />
+      <point x="1579.3047077922072" y="2238.0" />
+      <point x="25.5" y="13.5" />
+    </edge>
+    <edge source="SpecialFruitOne" target="FruitDecorator">
+      <point x="48.333333333333314" y="-13.5" />
+      <point x="341.33333333333326" y="415.0" />
+      <point x="339.89259431045116" y="415.0" />
+      <point x="-17.25" y="24.5" />
+    </edge>
+    <edge source="GameEngine" target="LoadGame">
+      <point x="47.25" y="-332.5" />
+      <point x="927.2884276437844" y="1503.0" />
+      <point x="1142.6458333333335" y="1503.0" />
+      <point x="27.5" y="24.5" />
+    </edge>
+    <edge source="XmlFile" target="Level">
+      <point x="-36.66666666666674" y="-24.5" />
+      <point x="1020.9019300144291" y="830.0" />
+      <point x="1004.8185966810959" y="830.0" />
+      <point x="1004.8185966810959" y="415.0" />
+      <point x="964.9581606885176" y="415.0" />
+      <point x="-4.625" y="13.5" />
+    </edge>
+    <edge source="GameEngine" target="GameActions">
+      <point x="87.75" y="-332.5" />
+      <point x="967.7884276437844" y="1533.0" />
+      <point x="1418.6458333333335" y="1533.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="SpecialFruitOne" target="Fruit">
+      <point x="-48.33333333333337" y="-13.5" />
+      <point x="244.66666666666663" y="415.0" />
+      <point x="262.26132498453956" y="415.0" />
+      <point x="262.26132498453956" y="242.0" />
+      <point x="274.23593846629547" y="242.0" />
+      <point x="-10.5" y="57.5" />
+    </edge>
+    <edge source="GameEngine" target="SaveGame">
+      <point x="6.75" y="-332.5" />
+      <point x="886.7884276437844" y="1473.0" />
+      <point x="957.6458333333333" y="1473.0" />
+      <point x="-27.5" y="24.5" />
+    </edge>
+    <edge source="StartController" target="EasyLevel">
+      <point x="-41.799999999999955" y="-101.5" />
+      <point x="1438.5458333333336" y="2238.0" />
+      <point x="1487.6458333333335" y="2238.0" />
+      <point x="1487.6458333333335" y="800.0" />
+      <point x="1100.3185966810959" y="800.0" />
+      <point x="34.0" y="13.5" />
+    </edge>
+    <edge source="FruitDecorator" target="Fruit">
+      <point x="0.0" y="-24.5" />
+      <point x="357.14259431045116" y="242.0" />
+      <point x="316.23593846629547" y="242.0" />
+      <point x="31.5" y="57.5" />
+    </edge>
+    <edge source="Model" target="GameObject">
+      <point x="-45.77777777777794" y="-112.5" />
+      <point x="935.4513888888887" y="961.0" />
+      <point x="841.0" y="961.0" />
+      <point x="841.0" y="57.0" />
+      <point x="747.3787956091526" y="57.0" />
+      <point x="47.14285714285711" y="13.5" />
+    </edge>
+    <edge source="FruitDecorator" target="GameObject">
+      <point x="46.0" y="-24.5" />
+      <point x="403.14259431045116" y="242.0" />
+      <point x="433.86093846629547" y="242.0" />
+      <point x="433.86093846629547" y="67.0" />
+      <point x="684.5216527520098" y="67.0" />
+      <point x="-15.714285714285666" y="13.5" />
+    </edge>
+    <edge source="DangerousBomb" target="Bombs">
+      <point x="32.75" y="-13.5" />
+      <point x="648.75" y="415.0" />
+      <point x="664.5946583178729" y="415.0" />
+      <point x="-15.75" y="46.5" />
+    </edge>
+    <edge source="LoadGame" target="Model">
+      <point x="-36.66666666666674" y="-24.5" />
+      <point x="1078.4791666666665" y="1256.0" />
+      <point x="1032.7291666666665" y="1256.0" />
+      <point x="51.499999999999886" y="112.5" />
+    </edge>
+    <edge source="Fruit" target="GameObject">
+      <point x="0.0" y="-57.5" />
+      <point x="284.73593846629547" y="57.0" />
+      <point x="668.807367037724" y="57.0" />
+      <point x="-31.428571428571445" y="13.5" />
+    </edge>
+    <edge source="EasyLevel" target="Level">
+      <point x="0.0" y="-13.5" />
+      <point x="1066.3185966810959" y="405.0" />
+      <point x="974.2081606885176" y="405.0" />
+      <point x="4.625" y="13.5" />
+    </edge>
+    <edge source="NormalLevel" target="Level">
+      <point x="0.0" y="-13.5" />
+      <point x="1328.2769300144291" y="395.0" />
+      <point x="983.4581606885176" y="395.0" />
+      <point x="13.875" y="13.5" />
+    </edge>
+    <edge source="SpecialFruitTwo" target="Fruit">
+      <point x="48.33333333333337" y="-13.5" />
+      <point x="506.33333333333337" y="415.0" />
+      <point x="501.4859384662955" y="415.0" />
+      <point x="501.4859384662955" y="232.0" />
+      <point x="337.23593846629547" y="232.0" />
+      <point x="52.5" y="57.5" />
+    </edge>
+    <edge source="SaveGame" target="Command">
+      <point x="36.66666666666663" y="-24.5" />
+      <point x="1021.8125" y="1266.0" />
+      <point x="1173.8880411255404" y="1266.0" />
+      <point x="-33.0" y="13.5" />
+    </edge>
+    <edge source="FatalBomb" target="Bombs">
+      <point x="-25.5" y="-13.5" />
+      <point x="727.0" y="415.0" />
+      <point x="696.0946583178729" y="415.0" />
+      <point x="15.75" y="46.5" />
+    </edge>
+    <edge source="AnimationGUI" target="GameEngine">
+      <point x="71.625" y="68.5" />
+      <point x="186.00353277674662" y="1503.0" />
+      <point x="832.7884276437844" y="1503.0" />
+      <point x="-47.25" y="-332.5" />
+    </edge>
+    <edge source="AnimationGUI" target="GameObjectFactory">
+      <point x="47.75" y="-68.5" />
+      <point x="162.12853277674662" y="1276.0" />
+      <point x="227.39259431045116" y="1276.0" />
+      <point x="-47.25" y="35.5" />
+    </edge>
+    <edge source="SaveGame" target="Model">
+      <point x="-1.1368683772161603E-13" y="-24.5" />
+      <point x="985.1458333333333" y="1276.0" />
+      <point x="998.3958333333333" y="1276.0" />
+      <point x="17.16666666666663" y="112.5" />
+    </edge>
+    <edge source="Invoker" target="Command">
+      <point x="37.5" y="-24.5" />
+      <point x="1302.6458333333335" y="1276.0" />
+      <point x="1239.8880411255404" y="1276.0" />
+      <point x="33.0" y="13.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="GameObject">
+      <point x="84.0" y="-35.5" />
+      <point x="358.64259431045116" y="830.0" />
+      <point x="814.0" y="830.0" />
+      <point x="814.0" y="77.0" />
+      <point x="715.9502241805811" y="77.0" />
+      <point x="15.714285714285666" y="13.5" />
+    </edge>
+    <edge source="Model" target="XmlFile">
+      <point x="45.777777777777715" y="-112.5" />
+      <point x="1027.0069444444443" y="961.0" />
+      <point x="1046.5685966810959" y="961.0" />
+      <point x="-11.0" y="24.5" />
+    </edge>
+    <edge source="GameEngine" target="Level">
+      <point x="-33.75" y="-332.5" />
+      <point x="846.2884276437844" y="1533.0" />
+      <point x="854.0625" y="1533.0" />
+      <point x="854.0625" y="405.0" />
+      <point x="937.2081606885176" y="405.0" />
+      <point x="-32.375" y="13.5" />
+    </edge>
+    <edge source="Model" target="GameObjectFactory">
+      <point x="-91.55555555555566" y="-112.5" />
+      <point x="889.673611111111" y="981.0" />
+      <point x="321.89259431045116" y="981.0" />
+      <point x="47.25" y="35.5" />
+    </edge>
+    <edge source="GameEngine" target="Model">
+      <point x="-20.25" y="-332.5" />
+      <point x="859.7884276437844" y="1453.0" />
+      <point x="903.0547077922071" y="1453.0" />
+      <point x="903.0547077922071" y="1276.0" />
+      <point x="895.3958333333333" y="1276.0" />
+      <point x="-85.83333333333337" y="112.5" />
+    </edge>
+    <edge source="LoadGame" target="Command">
+      <point x="36.66666666666674" y="-24.5" />
+      <point x="1151.8125" y="1276.0" />
+      <point x="1195.8880411255404" y="1276.0" />
+      <point x="-11.0" y="13.5" />
+    </edge>
+    <edge source="GameEngine" target="AnimationGUI">
+      <point x="-87.75" y="-332.5" />
+      <point x="792.2884276437844" y="1533.0" />
+      <point x="42.753532776746624" y="1533.0" />
+      <point x="-71.625" y="68.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="SpecialFruitOne">
+      <point x="0.0" y="-35.5" />
+      <point x="274.64259431045116" y="790.0" />
+      <point x="293.0" y="790.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="XmlFile" target="Model">
+      <point x="11.0" y="24.5" />
+      <point x="1068.5685966810959" y="971.0" />
+      <point x="1049.8958333333333" y="971.0" />
+      <point x="68.66666666666663" y="-112.5" />
+    </edge>
+    <edge source="XmlFile" target="HardLevel">
+      <point x="36.66666666666674" y="-24.5" />
+      <point x="1094.2352633477626" y="830.0" />
+      <point x="1528.3047077922072" y="830.0" />
+      <point x="-25.5" y="13.5" />
+    </edge>
+    <edge source="SpecialFruitTwo" target="FruitDecorator">
+      <point x="0.0" y="-13.5" />
+      <point x="458.0" y="405.0" />
+      <point x="408.89259431045116" y="405.0" />
+      <point x="51.75" y="24.5" />
+    </edge>
+    <edge source="StartController" target="NormalLevel">
+      <point x="0.0" y="-101.5" />
+      <point x="1480.3458333333333" y="2248.0" />
+      <point x="1509.344658317873" y="2248.0" />
+      <point x="1509.344658317873" y="790.0" />
+      <point x="1367.2769300144291" y="790.0" />
+      <point x="39.0" y="13.5" />
+    </edge>
+    <edge source="HardLevel" target="Level">
+      <point x="0.0" y="-13.5" />
+      <point x="1553.8047077922072" y="385.0" />
+      <point x="992.7081606885176" y="385.0" />
+      <point x="23.125" y="13.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="ObjectImages">
+      <point x="-42.0" y="-35.5" />
+      <point x="232.64259431045116" y="810.0" />
+      <point x="156.25" y="810.0" />
+      <point x="43.25" y="167.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="DangerousBomb">
+      <point x="42.0" y="-35.5" />
+      <point x="316.64259431045116" y="810.0" />
+      <point x="616.0" y="810.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="Model" target="Level">
+      <point x="-1.1368683772161603E-13" y="-112.5" />
+      <point x="981.2291666666665" y="941.0" />
+      <point x="953.2884276437844" y="941.0" />
+      <point x="953.2884276437844" y="415.0" />
+      <point x="955.7081606885176" y="415.0" />
+      <point x="-13.875" y="13.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="SpecialFruitTwo">
+      <point x="21.0" y="-35.5" />
+      <point x="295.64259431045116" y="800.0" />
+      <point x="458.0" y="800.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="Bombs" target="GameObject">
+      <point x="0.0" y="-46.5" />
+      <point x="680.3446583178729" y="77.0" />
+      <point x="700.2359384662955" y="77.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="StartController" target="GameEngine">
+      <point x="-83.59999999999991" y="-101.5" />
+      <point x="1396.7458333333334" y="2248.0" />
+      <point x="880.0384276437844" y="2248.0" />
+      <point x="0.0" y="332.5" />
+    </edge>
+    <edge source="GameObjectFactory" target="FatalBomb">
+      <point x="63.0" y="-35.5" />
+      <point x="337.64259431045116" y="820.0" />
+      <point x="752.5" y="820.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="732.9999999999992" y="514.8333333333333" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

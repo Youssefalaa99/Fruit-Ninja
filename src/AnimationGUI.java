@@ -44,7 +44,6 @@ public class AnimationGUI {
                 .addAll(new KeyFrame(Duration.millis(delay + cycle), randomBombPath(bomb, object, delay, cycle)));
         timelineBomb.setCycleCount(Timeline.INDEFINITE);
         timelineBomb.play();
-        System.out.println(timelineBomb.getCycleDuration());
 
     }
 
@@ -62,7 +61,6 @@ public class AnimationGUI {
             fruit.setVisible(true);
             fruit.setDisable(false);
             object.setIsSliced(false);
-            System.out.println("Changed to not sliced");
             fruit.setImage(object.getImage()[0]);
             path = (GameObjectFactory.getInstance()).rdmPath();
             pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
@@ -83,7 +81,6 @@ public class AnimationGUI {
             fruit.setVisible(true);
             fruit.setDisable(false);
             object.setIsSliced(false);
-            System.out.println("Changed to not sliced");
             fruit.setImage(object.getImage()[0]);
             path = (GameObjectFactory.getInstance()).rdmPath();
             pathTrans = new PathTransition(Duration.millis(cycle), path, fruit);
@@ -136,7 +133,6 @@ public class AnimationGUI {
 
 
     public void check(GameObject object) {
-        System.out.println("Checking :" + object.isSliced());
         if (object.isSliced() == false) {
             engine.removeLife();
         }
